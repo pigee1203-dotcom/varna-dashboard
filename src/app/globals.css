@@ -1,26 +1,29 @@
-
 @import "tailwindcss";
 
 :root {
   --background: #0a0b14;
-  --foreground: #f4f2ff;
+  --foreground: #f5f2ff;
 
   --varna-bg-main: #0a0b14;
-  --varna-bg-secondary: #111425;
-  --varna-panel: rgba(22, 26, 48, 0.72);
-  --varna-panel-soft: rgba(28, 33, 58, 0.58);
+  --varna-bg-deep: #090b13;
+  --varna-surface: rgba(18, 22, 40, 0.72);
+  --varna-surface-soft: rgba(24, 28, 48, 0.58);
 
-  --varna-border: rgba(150, 124, 255, 0.16);
-  --varna-border-strong: rgba(150, 124, 255, 0.26);
+  --varna-border: rgba(138, 116, 255, 0.18);
+  --varna-border-strong: rgba(138, 116, 255, 0.28);
 
-  --varna-purple: #8d6bff;
-  --varna-purple-soft: #6f56d9;
-  --varna-blue: #5b8cff;
-  --varna-orange: #ff9c47;
+  --varna-purple: #876cff;
+  --varna-purple-soft: #6c58d8;
+  --varna-blue: #7b8cff;
+  --varna-orange: #f2a35e;
 
-  --varna-text: #f4f2ff;
-  --varna-text-soft: #b7b1d9;
-  --varna-text-dim: #8b85ab;
+  --varna-text: #f5f2ff;
+  --varna-text-soft: #c6bddf;
+  --varna-text-dim: #8f86ae;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -28,17 +31,16 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(109, 74, 255, 0.16), transparent 24%),
-    radial-gradient(circle at 82% 18%, rgba(91, 140, 255, 0.12), transparent 20%),
-    radial-gradient(circle at 52% 82%, rgba(255, 156, 71, 0.10), transparent 18%),
-    linear-gradient(180deg, #111325 0%, #0b0d18 52%, #090a12 100%);
   color: var(--varna-text);
   font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(122, 98, 255, 0.18), transparent 26%),
+    linear-gradient(180deg, #101320 0%, #0b0d18 48%, #090a12 100%);
 }
 
 body {
   position: relative;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -47,14 +49,29 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 22% 78%, rgba(255, 156, 71, 0.08), transparent 14%),
-    radial-gradient(circle at 74% 70%, rgba(109, 74, 255, 0.10), transparent 16%),
-    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03), transparent 30%);
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 72%,
+      rgba(255, 166, 92, 0.06) 83%,
+      transparent 100%
+    );
   opacity: 1;
 }
 
-* {
-  box-sizing: border-box;
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 220px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(255, 165, 90, 0.10), transparent 38%),
+    radial-gradient(ellipse at 60% 80%, rgba(132, 108, 255, 0.12), transparent 34%),
+    radial-gradient(ellipse at 85% 75%, rgba(255, 165, 90, 0.06), transparent 28%);
+  filter: blur(10px);
 }
 
 a {
