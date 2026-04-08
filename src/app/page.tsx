@@ -2,64 +2,72 @@ export default function DashboardPage() {
   const quickActions = [
     {
       title: "Nouvelle Tâche",
-      bg: "linear-gradient(180deg, rgba(86,96,255,0.78), rgba(67,75,186,0.72))",
+      bg: "linear-gradient(180deg, rgba(86,96,255,0.88), rgba(67,75,186,0.78))",
+      icon: "+",
     },
     {
       title: "Événement",
-      bg: "linear-gradient(180deg, rgba(184,99,255,0.74), rgba(135,63,198,0.70))",
+      bg: "linear-gradient(180deg, rgba(184,99,255,0.84), rgba(135,63,198,0.76))",
+      icon: "+",
     },
     {
       title: "Ajouter Facture",
-      bg: "linear-gradient(180deg, rgba(197,123,173,0.76), rgba(148,85,131,0.72))",
+      bg: "linear-gradient(180deg, rgba(197,123,173,0.84), rgba(148,85,131,0.76))",
+      icon: "◧",
     },
     {
       title: "Nouvelle Note",
-      bg: "linear-gradient(180deg, rgba(122,158,228,0.76), rgba(79,115,180,0.72))",
+      bg: "linear-gradient(180deg, rgba(122,158,228,0.84), rgba(79,115,180,0.76))",
+      icon: "▤",
     },
   ];
 
   const suggestions = [
-    "5 tâches en attente depuis 3 jours",
-    "Facture SFR bientôt due",
-    "Aucun événement aujourd'hui → Planifier ?",
+    { icon: "🔔", text: "5 tâches en attente depuis 3 jours" },
+    { icon: "💼", text: "Facture SFR bientôt due" },
+    { icon: "🗓️", text: "Aucun événement aujourd'hui → Planifier ?" },
   ];
 
   const activities = [
-    "Rapport final terminé il y a 12 min",
-    "Contrat_projet.pdf ajouté il y a 45 min",
-    "Paiement Facture Styles il y a 1 h",
+    { icon: "✅", text: "Rapport final terminé il y a 12 min" },
+    { icon: "📁", text: "Contrat_projet.pdf ajouté il y a 45 min" },
+    { icon: "💵", text: "Paiement Facture Styles il y a 1 h" },
   ];
 
   const stats = [
-    { title: "Inbox", value: "7", accent: false },
-    { title: "Aujourd'hui", value: "3", accent: true },
-    { title: "Factures", value: "2", accent: false },
-    { title: "Docs", value: "4", accent: false },
+    { title: "Inbox", value: "7", icon: "✉", accent: false },
+    { title: "Aujourd'hui", value: "3", icon: "▣", accent: true },
+    { title: "Factures", value: "2", icon: "▤", accent: false, sub: "En attente" },
+    { title: "Docs", value: "4", icon: "▥", accent: false },
   ];
+
+  const panelBase: React.CSSProperties = {
+    borderRadius: "26px",
+    border: "1px solid rgba(91, 89, 178, 0.24)",
+    background: "linear-gradient(180deg, rgba(12,14,37,0.88), rgba(8,10,27,0.82))",
+    boxShadow:
+      "0 0 0 1px rgba(255,255,255,0.018) inset, 0 22px 50px rgba(0,0,0,0.24)",
+  };
 
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 372px",
+        gridTemplateColumns: "1fr 382px",
         gap: "18px",
         minHeight: "100%",
         alignItems: "start",
       }}
     >
       <section style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-        {/* PRIORITE IMMEDIATE */}
         <div
           style={{
+            ...panelBase,
             position: "relative",
             borderRadius: "28px",
-            border: "1px solid rgba(91, 89, 178, 0.24)",
-            background:
-              "linear-gradient(180deg, rgba(12,14,37,0.88), rgba(8,10,27,0.84))",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.02) inset, 0 24px 60px rgba(0,0,0,0.26)",
-            padding: "18px",
+            padding: "18px 18px 16px 18px",
             overflow: "hidden",
+            minHeight: "400px",
           }}
         >
           <div
@@ -68,25 +76,26 @@ export default function DashboardPage() {
               inset: 0,
               pointerEvents: "none",
               background:
-                "radial-gradient(circle at 52% 0%, rgba(125,104,255,0.16), transparent 28%)",
+                "radial-gradient(circle at 54% 2%, rgba(126,104,255,0.18), transparent 28%)",
             }}
           />
 
           <div
             style={{
               position: "absolute",
-              left: "18%",
-              right: "12%",
-              bottom: "-4%",
-              height: "180px",
+              left: "-5%",
+              right: "-5%",
+              bottom: "-6%",
+              height: "210px",
               pointerEvents: "none",
-              opacity: 0.95,
+              opacity: 0.88,
               background: `
-                radial-gradient(ellipse at 18% 64%, rgba(255,155,82,0.14), transparent 24%),
-                radial-gradient(ellipse at 48% 80%, rgba(130,108,255,0.16), transparent 28%),
-                radial-gradient(ellipse at 74% 68%, rgba(255,155,82,0.10), transparent 22%)
+                radial-gradient(ellipse at 14% 72%, rgba(255,155,82,0.14), transparent 24%),
+                radial-gradient(ellipse at 42% 86%, rgba(130,108,255,0.18), transparent 28%),
+                radial-gradient(ellipse at 64% 72%, rgba(255,155,82,0.10), transparent 20%),
+                radial-gradient(ellipse at 82% 84%, rgba(118,100,255,0.14), transparent 28%)
               `,
-              filter: "blur(22px)",
+              filter: "blur(20px)",
             }}
           />
 
@@ -141,14 +150,15 @@ export default function DashboardPage() {
           >
             <div
               style={{
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
                 alignItems: "center",
-                padding: "14px 16px",
+                gap: "14px",
+                padding: "14px 18px",
                 borderRadius: "14px",
                 border: "1px solid rgba(111,105,196,0.18)",
                 background:
-                  "linear-gradient(180deg, rgba(26,30,67,0.84), rgba(22,25,58,0.82))",
+                  "linear-gradient(180deg, rgba(28,31,68,0.88), rgba(23,26,58,0.84))",
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.015) inset",
               }}
             >
@@ -163,14 +173,15 @@ export default function DashboardPage() {
 
             <div
               style={{
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
                 alignItems: "center",
-                padding: "14px 16px",
+                gap: "14px",
+                padding: "14px 18px",
                 borderRadius: "14px",
                 border: "1px solid rgba(111,105,196,0.18)",
                 background:
-                  "linear-gradient(180deg, rgba(26,30,67,0.84), rgba(22,25,58,0.82))",
+                  "linear-gradient(180deg, rgba(28,31,68,0.88), rgba(23,26,58,0.84))",
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.015) inset",
               }}
             >
@@ -180,7 +191,7 @@ export default function DashboardPage() {
 
               <div
                 style={{
-                  minWidth: "84px",
+                  minWidth: "110px",
                   textAlign: "center",
                   padding: "8px 16px",
                   borderRadius: "10px",
@@ -197,14 +208,15 @@ export default function DashboardPage() {
 
             <div
               style={{
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
                 alignItems: "center",
-                padding: "14px 16px",
+                gap: "14px",
+                padding: "14px 18px",
                 borderRadius: "14px",
                 border: "1px solid rgba(111,105,196,0.18)",
                 background:
-                  "linear-gradient(180deg, rgba(26,30,67,0.84), rgba(22,25,58,0.82))",
+                  "linear-gradient(180deg, rgba(28,31,68,0.88), rgba(23,26,58,0.84))",
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.015) inset",
               }}
             >
@@ -216,7 +228,7 @@ export default function DashboardPage() {
                 <span style={{ fontSize: "16px", color: "#f6f2ff" }}>145 €</span>
                 <div
                   style={{
-                    width: "40px",
+                    width: "44px",
                     height: "32px",
                     borderRadius: "10px",
                     border: "1px solid rgba(120,111,206,0.22)",
@@ -234,14 +246,15 @@ export default function DashboardPage() {
 
             <div
               style={{
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
                 alignItems: "center",
-                padding: "14px 16px",
+                gap: "14px",
+                padding: "14px 18px",
                 borderRadius: "14px",
-                border: "1px solid rgba(111,105,196,0.16)",
+                border: "1px solid rgba(111,105,196,0.14)",
                 background:
-                  "linear-gradient(180deg, rgba(24,28,61,0.80), rgba(19,22,51,0.80))",
+                  "linear-gradient(180deg, rgba(22,26,58,0.82), rgba(18,22,48,0.82))",
                 boxShadow: "0 0 0 1px rgba(255,255,255,0.01) inset",
                 color: "#7f78a8",
               }}
@@ -250,7 +263,7 @@ export default function DashboardPage() {
 
               <div
                 style={{
-                  minWidth: "84px",
+                  minWidth: "110px",
                   textAlign: "center",
                   padding: "8px 16px",
                   borderRadius: "10px",
@@ -268,15 +281,17 @@ export default function DashboardPage() {
             <div
               style={{
                 position: "relative",
-                display: "flex",
-                justifyContent: "space-between",
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: "16px",
                 alignItems: "center",
-                padding: "14px 16px",
+                padding: "16px 16px 16px 16px",
                 borderRadius: "14px",
                 border: "1px solid rgba(227,153,77,0.18)",
                 background:
                   "linear-gradient(90deg, rgba(35,28,58,0.95) 0%, rgba(57,35,44,0.92) 58%, rgba(89,53,31,0.78) 100%)",
                 overflow: "hidden",
+                marginTop: "2px",
               }}
             >
               <div
@@ -285,16 +300,16 @@ export default function DashboardPage() {
                   left: "16%",
                   right: "12%",
                   bottom: "-14px",
-                  height: "48px",
+                  height: "52px",
                   background:
-                    "radial-gradient(ellipse at center, rgba(255,155,79,0.42), rgba(255,155,79,0.0) 70%)",
+                    "radial-gradient(ellipse at center, rgba(255,155,79,0.44), rgba(255,155,79,0.0) 70%)",
                   filter: "blur(6px)",
                   pointerEvents: "none",
                 }}
               />
 
               <div style={{ position: "relative", zIndex: 1 }}>
-                <div style={{ marginBottom: "8px", color: "#f6f2ff" }}>
+                <div style={{ marginBottom: "8px", color: "#f6f2ff", fontSize: "15px" }}>
                   <span style={{ color: "#f0b451", marginRight: "8px" }}>▮</span>
                   Facture Internet bientôt due − 2 jours
                 </div>
@@ -329,7 +344,7 @@ export default function DashboardPage() {
 
                 <div
                   style={{
-                    minWidth: "84px",
+                    minWidth: "110px",
                     textAlign: "center",
                     padding: "10px 16px",
                     borderRadius: "10px",
@@ -347,16 +362,10 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* VISION GLOBALE */}
         <div
           style={{
-            borderRadius: "26px",
-            border: "1px solid rgba(91, 89, 178, 0.24)",
-            background:
-              "linear-gradient(180deg, rgba(12,14,37,0.84), rgba(8,10,27,0.80))",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.02) inset, 0 22px 50px rgba(0,0,0,0.22)",
-            padding: "16px 18px 18px 18px",
+            ...panelBase,
+            padding: "14px 16px 16px 16px",
             position: "relative",
             overflow: "hidden",
           }}
@@ -367,7 +376,7 @@ export default function DashboardPage() {
               inset: 0,
               pointerEvents: "none",
               background:
-                "radial-gradient(circle at 50% 100%, rgba(118,102,255,0.10), transparent 26%)",
+                "radial-gradient(circle at 50% 100%, rgba(118,102,255,0.10), transparent 28%)",
             }}
           />
 
@@ -380,7 +389,7 @@ export default function DashboardPage() {
               marginBottom: "14px",
               color: "#e7deff",
               fontWeight: 700,
-              fontSize: "20px",
+              fontSize: "18px",
               position: "relative",
               zIndex: 1,
             }}
@@ -399,40 +408,40 @@ export default function DashboardPage() {
               zIndex: 1,
             }}
           >
-            {stats.map((item, i) => (
+            {stats.map((item) => (
               <div
                 key={item.title}
                 style={{
-                  borderRadius: "16px",
+                  borderRadius: "15px",
                   border: "1px solid rgba(111,105,196,0.16)",
                   background: item.accent
-                    ? "linear-gradient(180deg, rgba(72,61,142,0.36), rgba(24,27,57,0.82))"
-                    : "linear-gradient(180deg, rgba(25,29,66,0.82), rgba(20,24,52,0.80))",
+                    ? "linear-gradient(180deg, rgba(81,68,160,0.42), rgba(24,27,57,0.84))"
+                    : "linear-gradient(180deg, rgba(25,29,66,0.84), rgba(20,24,52,0.82))",
                   boxShadow: item.accent
-                    ? "0 0 18px rgba(155,120,255,0.08), 0 0 0 1px rgba(255,255,255,0.015) inset"
+                    ? "0 0 20px rgba(155,120,255,0.10), 0 0 0 1px rgba(255,255,255,0.015) inset"
                     : "0 0 0 1px rgba(255,255,255,0.012) inset",
-                  minHeight: "98px",
+                  minHeight: "102px",
                   padding: "14px 16px",
                 }}
               >
                 <div
                   style={{
                     color: "#ece4ff",
-                    fontSize: "15px",
+                    fontSize: "14px",
                     marginBottom: "10px",
                     display: "flex",
                     alignItems: "center",
                     gap: "8px",
                   }}
                 >
-                  <span style={{ color: "#d8ceff" }}>▣</span>
+                  <span style={{ color: "#d8ceff" }}>{item.icon}</span>
                   {item.title}
                 </div>
 
                 <div style={{ display: "flex", alignItems: "flex-end", gap: "12px" }}>
                   <div
                     style={{
-                      fontSize: "44px",
+                      fontSize: "42px",
                       lineHeight: 1,
                       fontWeight: 500,
                       color: "#f4efff",
@@ -451,7 +460,7 @@ export default function DashboardPage() {
                   >
                     <div
                       style={{
-                        width: "42px",
+                        width: "40px",
                         height: "4px",
                         borderRadius: "999px",
                         background: "rgba(174,164,222,0.42)",
@@ -459,7 +468,7 @@ export default function DashboardPage() {
                     />
                     <div
                       style={{
-                        width: "32px",
+                        width: "30px",
                         height: "4px",
                         borderRadius: "999px",
                         background: item.accent
@@ -469,24 +478,29 @@ export default function DashboardPage() {
                     />
                   </div>
                 </div>
+
+                {item.sub && (
+                  <div
+                    style={{
+                      marginTop: "2px",
+                      color: "#d8cff8",
+                      fontSize: "13px",
+                    }}
+                  >
+                    {item.sub}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* RIGHT COLUMN */}
       <aside style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-        {/* QUICK ACTIONS */}
         <div
           style={{
-            borderRadius: "26px",
-            border: "1px solid rgba(91, 89, 178, 0.24)",
-            background:
-              "linear-gradient(180deg, rgba(12,14,37,0.84), rgba(8,10,27,0.80))",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.02) inset, 0 22px 50px rgba(0,0,0,0.22)",
-            padding: "16px 18px 18px 18px",
+            ...panelBase,
+            padding: "16px 16px 16px 16px",
           }}
         >
           <div
@@ -494,7 +508,7 @@ export default function DashboardPage() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "16px",
+              marginBottom: "14px",
             }}
           >
             <div style={{ fontSize: "18px", fontWeight: 700, color: "#f4efff" }}>
@@ -529,25 +543,23 @@ export default function DashboardPage() {
                   background: item.bg,
                   border: "1px solid rgba(255,255,255,0.08)",
                   boxShadow: "0 10px 22px rgba(0,0,0,0.18)",
-                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "10px",
                 }}
               >
-                {item.title}
+                <span style={{ fontSize: "18px", lineHeight: 1 }}>{item.icon}</span>
+                <span>{item.title}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* SMART SUGGESTIONS */}
         <div
           style={{
-            borderRadius: "26px",
-            border: "1px solid rgba(91, 89, 178, 0.24)",
-            background:
-              "linear-gradient(180deg, rgba(12,14,37,0.84), rgba(8,10,27,0.80))",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.02) inset, 0 22px 50px rgba(0,0,0,0.22)",
-            padding: "16px 18px 18px 18px",
+            ...panelBase,
+            padding: "16px 16px 18px 16px",
           }}
         >
           <div
@@ -565,38 +577,33 @@ export default function DashboardPage() {
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            {suggestions.map((text, i) => (
+            {suggestions.map((item) => (
               <div
-                key={text}
+                key={item.text}
                 style={{
-                  borderRadius: "14px",
+                  borderRadius: "12px",
                   background:
-                    "linear-gradient(180deg, rgba(25,29,66,0.84), rgba(20,24,52,0.82))",
+                    "linear-gradient(180deg, rgba(25,29,66,0.86), rgba(20,24,52,0.84))",
                   border: "1px solid rgba(111,105,196,0.10)",
-                  padding: "15px 14px",
+                  padding: "14px 14px",
                   color: "#efeaff",
-                  lineHeight: 1.45,
+                  lineHeight: 1.42,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
                 }}
               >
-                <span style={{ marginRight: "10px" }}>
-                  {i === 0 ? "🔔" : i === 1 ? "💼" : "🗓️"}
-                </span>
-                {text}
+                <span>{item.icon}</span>
+                <span>{item.text}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ACTIVITE RECENTE */}
         <div
           style={{
-            borderRadius: "26px",
-            border: "1px solid rgba(91, 89, 178, 0.24)",
-            background:
-              "linear-gradient(180deg, rgba(12,14,37,0.84), rgba(8,10,27,0.80))",
-            boxShadow:
-              "0 0 0 1px rgba(255,255,255,0.02) inset, 0 22px 50px rgba(0,0,0,0.22)",
-            padding: "16px 18px 18px 18px",
+            ...panelBase,
+            padding: "16px 16px 18px 16px",
           }}
         >
           <div
@@ -627,22 +634,23 @@ export default function DashboardPage() {
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-            {activities.map((text, i) => (
+            {activities.map((item) => (
               <div
-                key={text}
+                key={item.text}
                 style={{
                   borderRadius: "12px",
                   background:
-                    "linear-gradient(180deg, rgba(25,29,66,0.84), rgba(20,24,52,0.82))",
+                    "linear-gradient(180deg, rgba(25,29,66,0.86), rgba(20,24,52,0.84))",
                   border: "1px solid rgba(111,105,196,0.10)",
                   padding: "14px 14px",
                   color: "#efeaff",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
                 }}
               >
-                <span style={{ marginRight: "10px" }}>
-                  {i === 0 ? "✅" : i === 1 ? "📁" : "💵"}
-                </span>
-                {text}
+                <span>{item.icon}</span>
+                <span>{item.text}</span>
               </div>
             ))}
           </div>
