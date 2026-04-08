@@ -47,9 +47,9 @@ export default function Sidebar() {
       style={{
         position: "relative",
         borderRadius: "28px",
-        border: "1px solid rgba(124,112,255,0.14)",
+        border: "1px solid rgba(123,110,255,0.14)",
         background:
-          "linear-gradient(180deg, rgba(13,16,31,0.88), rgba(8,10,21,0.84))",
+          "linear-gradient(180deg, rgba(12,15,30,0.90), rgba(8,10,21,0.84))",
         boxShadow:
           "0 0 0 1px rgba(255,255,255,0.03) inset, 0 18px 70px rgba(0,0,0,0.30)",
         overflow: "hidden",
@@ -63,32 +63,44 @@ export default function Sidebar() {
           inset: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(circle at 4% 56%, rgba(255,153,83,0.10), transparent 12%), radial-gradient(circle at 12% 74%, rgba(145,112,255,0.12), transparent 18%)",
+            "radial-gradient(circle at 3% 54%, rgba(255,152,84,0.10), transparent 12%), radial-gradient(circle at 12% 76%, rgba(145,112,255,0.12), transparent 18%)",
         }}
       />
 
       <div
         style={{
+          position: "relative",
+          zIndex: 1,
           display: "flex",
           flexDirection: "column",
           gap: "12px",
-          position: "relative",
-          zIndex: 1,
         }}
       >
+        <div
+          style={{
+            color: "#ece7ff",
+            fontSize: "16px",
+            fontWeight: 700,
+            marginBottom: "4px",
+            padding: "4px 6px 2px 6px",
+          }}
+        >
+          Varna
+        </div>
+
         {menuItems.map((item) => (
           <Link key={item.href} href={item.href}>
             <div
               style={{
                 borderRadius: "18px",
                 border: item.active
-                  ? "1px solid rgba(208,170,255,0.24)"
-                  : "1px solid rgba(124,112,255,0.12)",
+                  ? "1px solid rgba(209,171,255,0.22)"
+                  : "1px solid rgba(123,110,255,0.12)",
                 background: item.active
-                  ? "linear-gradient(180deg, rgba(89,70,156,0.44), rgba(45,36,78,0.82))"
-                  : "linear-gradient(180deg, rgba(29,32,59,0.84), rgba(17,19,37,0.82))",
+                  ? "linear-gradient(180deg, rgba(88,69,154,0.42), rgba(43,36,79,0.84))"
+                  : "linear-gradient(180deg, rgba(28,31,59,0.84), rgba(16,19,37,0.84))",
                 boxShadow: item.active
-                  ? "0 0 22px rgba(208,157,255,0.14), 0 0 0 1px rgba(255,255,255,0.03) inset"
+                  ? "0 0 22px rgba(212,156,255,0.12), 0 0 0 1px rgba(255,255,255,0.03) inset"
                   : "0 0 0 1px rgba(255,255,255,0.02) inset",
                 padding: "14px",
                 display: "grid",
@@ -102,9 +114,9 @@ export default function Sidebar() {
                   width: "38px",
                   height: "38px",
                   borderRadius: "10px",
-                  border: "1px solid rgba(200,190,255,0.14)",
+                  border: "1px solid rgba(200,191,255,0.14)",
                   background:
-                    "linear-gradient(180deg, rgba(65,59,116,0.82), rgba(35,31,72,0.82))",
+                    "linear-gradient(180deg, rgba(63,58,110,0.82), rgba(35,31,72,0.82))",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -119,7 +131,7 @@ export default function Sidebar() {
               <div>
                 <div
                   style={{
-                    color: "#f2edff",
+                    color: "#f3efff",
                     fontSize: "15px",
                     fontWeight: 600,
                     marginBottom: "4px",
@@ -129,7 +141,7 @@ export default function Sidebar() {
                 </div>
                 <div
                   style={{
-                    color: "#b8b0db",
+                    color: "#b9b1dc",
                     fontSize: "12px",
                     lineHeight: 1.45,
                     whiteSpace: "pre-line",
@@ -142,7 +154,7 @@ export default function Sidebar() {
               {item.plus ? (
                 <div
                   style={{
-                    color: "#c8c0ee",
+                    color: "#c9c1ef",
                     fontSize: "18px",
                     paddingTop: "1px",
                   }}
@@ -162,16 +174,16 @@ export default function Sidebar() {
           position: "absolute",
           left: "18px",
           bottom: "16px",
-          width: "40px",
-          height: "40px",
+          width: "38px",
+          height: "38px",
           borderRadius: "999px",
-          border: "1px solid rgba(124,112,255,0.14)",
+          border: "1px solid rgba(123,110,255,0.14)",
           background:
-            "linear-gradient(180deg, rgba(30,32,61,0.92), rgba(14,16,32,0.88))",
+            "linear-gradient(180deg, rgba(28,31,59,0.92), rgba(14,16,32,0.88))",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#d8d1fb",
+          color: "#ddd6ff",
         }}
       >
         ‹
