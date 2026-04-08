@@ -3,7 +3,7 @@ export default function DashboardPage() {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 360px",
+        gridTemplateColumns: "1fr 340px",
         gap: "18px",
         minHeight: "100%",
         alignItems: "start",
@@ -14,12 +14,12 @@ export default function DashboardPage() {
           style={{
             position: "relative",
             borderRadius: "28px",
-            border: "1px solid rgba(123, 110, 255, 0.20)",
+            border: "1px solid rgba(123,110,255,0.18)",
             background:
-              "linear-gradient(180deg, rgba(18,20,42,0.88), rgba(15,17,36,0.80))",
+              "linear-gradient(180deg, rgba(18,20,42,0.88), rgba(14,16,35,0.80))",
             boxShadow:
               "0 0 0 1px rgba(255,255,255,0.03) inset, 0 18px 50px rgba(0,0,0,0.28)",
-            padding: "18px 18px 20px 18px",
+            padding: "16px 16px 18px 16px",
             overflow: "hidden",
           }}
         >
@@ -104,7 +104,7 @@ export default function DashboardPage() {
               <div style={{ fontSize: "15px" }}>2. Payer Facture EDF en retard</div>
               <div
                 style={{
-                  minWidth: "78px",
+                  minWidth: "82px",
                   textAlign: "center",
                   padding: "8px 16px",
                   borderRadius: "10px",
@@ -112,7 +112,6 @@ export default function DashboardPage() {
                   color: "white",
                   fontWeight: 700,
                   fontSize: "14px",
-                  boxShadow: "0 10px 18px rgba(185,50,73,0.22)",
                 }}
               >
                 Payer
@@ -166,7 +165,7 @@ export default function DashboardPage() {
               <div style={{ fontSize: "15px" }}>+&nbsp;&nbsp;Nouvelle Tâche...</div>
               <div
                 style={{
-                  minWidth: "78px",
+                  minWidth: "82px",
                   textAlign: "center",
                   padding: "8px 16px",
                   borderRadius: "10px",
@@ -174,7 +173,6 @@ export default function DashboardPage() {
                   color: "white",
                   fontWeight: 700,
                   fontSize: "14px",
-                  boxShadow: "0 10px 18px rgba(196,124,45,0.22)",
                 }}
               >
                 Payer
@@ -240,7 +238,6 @@ export default function DashboardPage() {
                     color: "white",
                     fontWeight: 700,
                     fontSize: "14px",
-                    boxShadow: "0 10px 18px rgba(196,124,45,0.22)",
                   }}
                 >
                   Payer
@@ -253,7 +250,7 @@ export default function DashboardPage() {
         <div
           style={{
             borderRadius: "26px",
-            border: "1px solid rgba(123, 110, 255, 0.18)",
+            border: "1px solid rgba(123,110,255,0.18)",
             background:
               "linear-gradient(180deg, rgba(17,20,41,0.82), rgba(15,17,35,0.74))",
             boxShadow:
@@ -299,7 +296,7 @@ export default function DashboardPage() {
                 style={{
                   padding: "16px 18px",
                   borderRight: i !== 3 ? "1px solid rgba(132,114,255,0.12)" : "none",
-                  minHeight: "112px",
+                  minHeight: "110px",
                   background:
                     i === 1
                       ? "linear-gradient(180deg, rgba(80,70,148,0.18), rgba(28,31,61,0.72))"
@@ -320,11 +317,11 @@ export default function DashboardPage() {
                   {item.title}
                 </div>
                 <div style={{ display: "flex", alignItems: "flex-end", gap: "12px" }}>
-                  <div style={{ fontSize: "56px", lineHeight: 1, fontWeight: 500 }}>{item.value}</div>
+                  <div style={{ fontSize: "54px", lineHeight: 1, fontWeight: 500 }}>{item.value}</div>
                   <div style={{ marginBottom: "10px", display: "flex", flexDirection: "column", gap: "6px" }}>
                     <div
                       style={{
-                        width: "46px",
+                        width: "44px",
                         height: "4px",
                         borderRadius: "999px",
                         background: "rgba(174,164,222,0.5)",
@@ -332,7 +329,7 @@ export default function DashboardPage() {
                     />
                     <div
                       style={{
-                        width: "34px",
+                        width: "32px",
                         height: "4px",
                         borderRadius: "999px",
                         background:
