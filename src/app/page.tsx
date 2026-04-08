@@ -10,7 +10,6 @@ export default function DashboardPage() {
       }}
     >
       <section style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-        {/* PRIORITÉ IMMÉDIATE */}
         <div
           style={{
             position: "relative",
@@ -58,126 +57,129 @@ export default function DashboardPage() {
             </div>
 
             <div style={{ display: "flex", gap: "7px" }}>
-              <div
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "999px",
-                  background: "rgba(191,183,255,0.7)",
-                }}
-              />
-              <div
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "999px",
-                  background: "rgba(191,183,255,0.7)",
-                }}
-              />
-              <div
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "999px",
-                  background: "rgba(191,183,255,0.7)",
-                }}
-              />
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: "6px",
+                    height: "6px",
+                    borderRadius: "999px",
+                    background: "rgba(191,183,255,0.7)",
+                  }}
+                />
+              ))}
             </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", position: "relative", zIndex: 1 }}>
-            {[
-              {
-                left: "1. Préparer la présentation client",
-                right: (
-                  <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                    <span style={{ color: "#87ec7b", fontSize: "20px" }}>✓</span>
-                    <span style={{ color: "#ff5e57", fontSize: "18px" }}>▦</span>
-                  </div>
-                ),
-              },
-              {
-                left: "2. Payer Facture EDF en retard",
-                right: (
-                  <div
-                    style={{
-                      minWidth: "78px",
-                      textAlign: "center",
-                      padding: "8px 16px",
-                      borderRadius: "10px",
-                      background: "linear-gradient(180deg, #d94b64, #b93249)",
-                      color: "white",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      boxShadow: "0 10px 18px rgba(185,50,73,0.22)",
-                    }}
-                  >
-                    Payer
-                  </div>
-                ),
-              },
-              {
-                left: "3. Réserver restaurant 20:00",
-                right: (
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <span style={{ fontSize: "16px", color: "#f6f2ff" }}>145 €</span>
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "32px",
-                        borderRadius: "10px",
-                        border: "1px solid rgba(140,120,255,0.18)",
-                        background: "rgba(53,43,92,0.85)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#e8deff",
-                      }}
-                    >
-                      ˅
-                    </div>
-                  </div>
-                ),
-              },
-              {
-                left: "+  Nouvelle Tâche...",
-                right: (
-                  <div
-                    style={{
-                      minWidth: "78px",
-                      textAlign: "center",
-                      padding: "8px 16px",
-                      borderRadius: "10px",
-                      background: "linear-gradient(180deg, #e4a054, #c47c2d)",
-                      color: "white",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      boxShadow: "0 10px 18px rgba(196,124,45,0.22)",
-                    }}
-                  >
-                    Payer
-                  </div>
-                ),
-                muted: true,
-              },
-            ].map((item) => (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "14px 16px",
+                borderRadius: "14px",
+                border: "1px solid rgba(132,114,255,0.14)",
+                background: "rgba(28,31,61,0.82)",
+              }}
+            >
+              <div style={{ fontSize: "15px" }}>1. Préparer la présentation client</div>
+              <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                <span style={{ color: "#87ec7b", fontSize: "20px" }}>✓</span>
+                <span style={{ color: "#ff5e57", fontSize: "18px" }}>▦</span>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "14px 16px",
+                borderRadius: "14px",
+                border: "1px solid rgba(132,114,255,0.14)",
+                background: "rgba(28,31,61,0.82)",
+              }}
+            >
+              <div style={{ fontSize: "15px" }}>2. Payer Facture EDF en retard</div>
               <div
-                key={item.left}
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "14px 16px",
-                  borderRadius: "14px",
-                  border: "1px solid rgba(132,114,255,0.14)",
-                  background: "rgba(28,31,61,0.82)",
-                  color: item.muted ? "#7f78a8" : "#f6f2ff",
+                  minWidth: "78px",
+                  textAlign: "center",
+                  padding: "8px 16px",
+                  borderRadius: "10px",
+                  background: "linear-gradient(180deg, #d94b64, #b93249)",
+                  color: "white",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  boxShadow: "0 10px 18px rgba(185,50,73,0.22)",
                 }}
               >
-                <div style={{ fontSize: "15px" }}>{item.left}</div>
-                <div>{item.right}</div>
+                Payer
               </div>
-            ))}
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "14px 16px",
+                borderRadius: "14px",
+                border: "1px solid rgba(132,114,255,0.14)",
+                background: "rgba(28,31,61,0.82)",
+              }}
+            >
+              <div style={{ fontSize: "15px" }}>3. Réserver restaurant 20:00</div>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span style={{ fontSize: "16px", color: "#f6f2ff" }}>145 €</span>
+                <div
+                  style={{
+                    width: "40px",
+                    height: "32px",
+                    borderRadius: "10px",
+                    border: "1px solid rgba(140,120,255,0.18)",
+                    background: "rgba(53,43,92,0.85)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#e8deff",
+                  }}
+                >
+                  ˅
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "14px 16px",
+                borderRadius: "14px",
+                border: "1px solid rgba(132,114,255,0.14)",
+                background: "rgba(28,31,61,0.82)",
+                color: "#7f78a8",
+              }}
+            >
+              <div style={{ fontSize: "15px" }}>+&nbsp;&nbsp;Nouvelle Tâche...</div>
+              <div
+                style={{
+                  minWidth: "78px",
+                  textAlign: "center",
+                  padding: "8px 16px",
+                  borderRadius: "10px",
+                  background: "linear-gradient(180deg, #e4a054, #c47c2d)",
+                  color: "white",
+                  fontWeight: 700,
+                  fontSize: "14px",
+                  boxShadow: "0 10px 18px rgba(196,124,45,0.22)",
+                }}
+              >
+                Payer
+              </div>
+            </div>
 
             <div
               style={{
@@ -248,7 +250,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* VISION GLOBALE */}
         <div
           style={{
             borderRadius: "26px",
@@ -281,16 +282,15 @@ export default function DashboardPage() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "0",
-              overflow: "hidden",
               borderRadius: "18px",
               border: "1px solid rgba(132,114,255,0.14)",
               background: "rgba(28,31,61,0.72)",
+              overflow: "hidden",
             }}
           >
             {[
               { title: "Inbox", value: "7" },
-              { title: "Aujourd’hui", value: "3" },
+              { title: "Aujourd'hui", value: "3" },
               { title: "Factures", value: "2" },
               { title: "Docs", value: "4" },
             ].map((item, i) => (
@@ -298,8 +298,7 @@ export default function DashboardPage() {
                 key={item.title}
                 style={{
                   padding: "16px 18px",
-                  borderRight:
-                    i !== 3 ? "1px solid rgba(132,114,255,0.12)" : "none",
+                  borderRight: i !== 3 ? "1px solid rgba(132,114,255,0.12)" : "none",
                   minHeight: "112px",
                   background:
                     i === 1
@@ -351,7 +350,6 @@ export default function DashboardPage() {
       </section>
 
       <aside style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-        {/* QUICK ACTIONS */}
         <div
           style={{
             borderRadius: "26px",
@@ -373,9 +371,17 @@ export default function DashboardPage() {
           >
             <div style={{ fontSize: "18px", fontWeight: 700 }}>Quick Actions</div>
             <div style={{ display: "flex", gap: "7px" }}>
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: 999,
+                    background: "rgba(191,183,255,0.7)",
+                  }}
+                />
+              ))}
             </div>
           </div>
 
@@ -418,7 +424,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* SMART SUGGESTIONS */}
         <div
           style={{
             borderRadius: "26px",
@@ -446,7 +451,7 @@ export default function DashboardPage() {
             {[
               "5 tâches en attente depuis 3 jours",
               "Facture SFR bientôt due",
-              "Aucun événement aujourd’hui → Planifier ?",
+              "Aucun événement aujourd'hui → Planifier ?",
             ].map((text, i) => (
               <div
                 key={text}
@@ -466,7 +471,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* ACTIVITÉ RÉCENTE */}
         <div
           style={{
             borderRadius: "26px",
@@ -488,9 +492,17 @@ export default function DashboardPage() {
           >
             <div style={{ fontSize: "18px", fontWeight: 700 }}>Activité Récente</div>
             <div style={{ display: "flex", gap: "7px" }}>
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
-              <div style={{ width: 6, height: 6, borderRadius: 999, background: "rgba(191,183,255,0.7)" }} />
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: 999,
+                    background: "rgba(191,183,255,0.7)",
+                  }}
+                />
+              ))}
             </div>
           </div>
 
