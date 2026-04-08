@@ -18,60 +18,72 @@ export default function RootLayout({
         <main
           style={{
             minHeight: "100vh",
-            padding: "24px",
+            padding: "20px",
           }}
         >
           <div
             style={{
-              maxWidth: "1440px",
+              maxWidth: "1680px",
               margin: "0 auto",
-              minHeight: "calc(100vh - 48px)",
-              borderRadius: "28px",
-              border: "1px solid rgba(138, 116, 255, 0.18)",
-              background: "rgba(10, 12, 24, 0.62)",
+              minHeight: "calc(100vh - 40px)",
+              borderRadius: "34px",
+              border: "1px solid rgba(140,120,255,0.12)",
+              background:
+                "linear-gradient(180deg, rgba(13,16,31,0.88), rgba(10,12,24,0.78))",
               boxShadow:
-                "0 0 0 1px rgba(255,255,255,0.03) inset, 0 20px 60px rgba(0,0,0,0.35)",
-              backdropFilter: "blur(10px)",
+                "0 0 0 1px rgba(255,255,255,0.03) inset, 0 30px 90px rgba(0,0,0,0.40)",
+              backdropFilter: "blur(16px)",
               padding: "18px",
             }}
           >
+            {/* TOP BAR */}
             <div
               style={{
-                height: "64px",
-                borderRadius: "18px",
-                border: "1px solid rgba(138, 116, 255, 0.16)",
-                background: "rgba(17, 20, 37, 0.58)",
+                height: "74px",
+                borderRadius: "22px",
+                border: "1px solid rgba(140,120,255,0.10)",
+                background: "rgba(19,23,41,0.58)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "0 18px",
+                padding: "0 22px",
                 marginBottom: "18px",
               }}
             >
-              <div style={{ fontSize: "22px", fontWeight: 700 }}>Varna</div>
+              <div
+                style={{
+                  fontSize: "24px",
+                  fontWeight: 700,
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                Dashboard
+              </div>
 
               <div
                 style={{
-                  width: "280px",
-                  height: "42px",
+                  width: "320px",
+                  height: "48px",
                   borderRadius: "999px",
-                  border: "1px solid rgba(138, 116, 255, 0.18)",
-                  background: "rgba(12, 14, 28, 0.7)",
+                  border: "1px solid rgba(140,120,255,0.12)",
+                  background: "rgba(12,15,28,0.78)",
                   display: "flex",
                   alignItems: "center",
-                  padding: "0 16px",
+                  padding: "0 18px",
                   color: "#8f86ae",
+                  fontSize: "14px",
                 }}
               >
                 Rechercher...
               </div>
             </div>
 
+            {/* BODY */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "240px 1fr",
-                gap: "18px",
+                gridTemplateColumns: "300px 1fr",
+                gap: "20px",
                 minHeight: "calc(100vh - 170px)",
               }}
             >
