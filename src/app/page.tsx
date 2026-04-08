@@ -1,4 +1,7 @@
  export default function DashboardPage() {
+  <div style={{ color: "lime", fontSize: "40px" }}>
+  TEST MODIF ACTIVE
+</div>
   return (
     <div
       style={{
