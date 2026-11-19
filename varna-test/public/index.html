@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#040b18">
+  <meta name="description" content="Le laboratoire VARNA : une nouvelle façon de planifier votre quotidien avec Javie.">
+  <title>VARNA · Javie — laboratoire</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js?v=payment-right-cards-223"></script>
+</head>
+<body>
+<svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <defs>
+  <filter id="javie-background-key" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+   <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 2 0.5 0 -0.17"/>
+   <feComponentTransfer><feFuncA type="gamma" amplitude="1" exponent="0.8" offset="0"/></feComponentTransfer>
+  </filter>
+ </defs>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m8 12 3 3 5-6"/></symbol>
+ <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2"/></symbol>
+ <symbol id="i-bill" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-4 2-4-2-3 2Z"/><path d="M9 8h6m-6 4h6m-6 4h3"/></symbol>
+ <symbol id="i-bank" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5ZM3 21h18M6 11v6m6-6v6m6-6v6"/></symbol>
+ <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h5l3 4h6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+ <symbol id="i-note" viewBox="0 0 24 24"><path d="M14 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9"/><path d="m9 12 9-9 3 3-9 9-4 1Z"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+ <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11a8 8 0 0 1-8 8H6l-4 3V11a9 9 0 0 1 19 0Z"/><path d="M7 10h10m-10 4h6"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2m-7 9v3m-4 0h8"/></symbol>
+ <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M9 21v-8h6v8"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+ <symbol id="i-send" viewBox="0 0 24 24"><path d="m3 3 19 9-19 9 4-9ZM7 12h15"/></symbol>
+ <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/></symbol>
+ <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="3"/><path d="M3 8h18m0 4h-6v4h6M6 5V3h12v2"/></symbol>
+ <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 16v5h16v-5"/></symbol>
+ <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</svg>
+<a class="skip" href="#dashboard">Aller au tableau de bord</a>
+<div class="app">
+ <header class="topbar">
+  <a href="#dashboard" class="brand" aria-label="VARNA — Accueil du laboratoire"><svg class="brand-logo" width="340" height="106" viewBox="170 70 1860 580" role="img" aria-label="VARNA — Votre numérisation personnelle"><image href="/assets/varna-logo-javie-v1.png" width="2172" height="724"/></svg></a>
+  <div class="topbar-title"><span class="status-dot"></span>VOTRE QUOTIDIEN, CONNECTÉ.</div>
+  <div class="topbar-right"><span class="test-badge">LABORATOIRE</span><button class="profile-button" data-action="profile" aria-label="Profil de Melissa">M</button></div>
+ </header>
+ <main id="dashboard" class="dashboard">
+  <aside class="column left-column" aria-label="Outils et raccourcis">
+   <section class="panel welcome-panel">
+    <div class="welcome-top"><span class="eyebrow">VOTRE ESPACE PERSONNEL</span><span class="tiny-star">✧</span></div>
+    <h1>Bonjour, <span id="greeting-name">Melissa</span><span class="cyan">.</span></h1>
+    <p class="welcome-copy">Et si on faisait de la place<br>à ce qui compte aujourd’hui ?</p>
+    <div class="mini-wave" aria-hidden="true"></div>
+    <div class="tools" id="tools"><div class="section-label">MES ESSENTIELS</div><div class="tool-grid">
+      <button data-action="task"><span class="tool-icon violet"><svg><use href="#i-check"/></svg></span>Tâches</button>
+      <button data-action="calendar"><span class="tool-icon blue"><svg><use href="#i-calendar"/></svg></span>Mon espace</button>
+      <button data-action="bills"><span class="tool-icon pink"><svg><use href="#i-bill"/></svg></span>Factures</button>
+      <button data-action="documents"><span class="tool-icon blue"><svg><use href="#i-folder"/></svg></span>Documents</button>
+      <button data-action="notes"><span class="tool-icon violet"><svg><use href="#i-note"/></svg></span>Notes</button>
+      <button data-action="bank"><span class="tool-icon cyan-icon"><svg><use href="#i-bank"/></svg></span>Mes finances et paiements</button>
+    </div></div>
+    <button class="panel-link" data-action="tools">Explorer mon espace<svg><use href="#i-arrow"/></svg></button>
+   </section>
+   <section class="panel shortcut-panel" aria-labelledby="shortcuts-title"><div class="panel-heading"><h2 id="shortcuts-title">RACCOURCIS INTELLIGENTS</h2><svg class="heading-icon"><use href="#i-spark"/></svg></div>
+    <button class="shortcut" data-action="plan"><span class="square-icon blue"><svg><use href="#i-calendar"/></svg></span><span><strong>Planifier ma journée</strong><small>Mes priorités, dans le bon ordre</small></span><svg class="chevron"><use href="#i-chevron"/></svg></button>
+    <button class="shortcut" data-action="new-task"><span class="square-icon violet"><svg><use href="#i-check"/></svg></span><span><strong>Créer une tâche</strong><small>Libérer mon esprit</small></span><svg class="chevron"><use href="#i-chevron"/></svg></button>
+    <button class="shortcut" data-action="bills"><span class="square-icon pink"><svg><use href="#i-bill"/></svg></span><span><strong>Préparer mes paiements</strong><small>Anticiper les prochaines échéances</small></span><svg class="chevron"><use href="#i-chevron"/></svg></button>
+    <button class="shortcut" data-action="note"><span class="square-icon violet"><svg><use href="#i-note"/></svg></span><span><strong>Capturer une idée</strong><small>Une note, au bon moment</small></span><svg class="chevron"><use href="#i-chevron"/></svg></button>
+   </section>
+   <section class="panel space-panel" aria-labelledby="space-title"><div class="panel-heading"><h2 id="space-title">MON ESPACE VARNA</h2><span class="subtle-pill">LOCAL</span></div>
+    <button class="space-row" data-action="task"><svg><use href="#i-check"/></svg><span>Mes tâches</span><span class="row-status" id="task-count">3 à faire</span></button>
+    <button class="space-row" data-action="notes"><svg><use href="#i-note"/></svg><span>Mon bloc-notes</span><span class="row-status" id="note-count">0 note</span></button>
+    <button class="space-row" data-action="documents"><svg><use href="#i-folder"/></svg><span>Mes documents</span><span class="row-status muted">Aperçu</span></button>
+    <div class="space-footer"><span class="status-dot"></span>Votre laboratoire est indépendant</div>
+   </section>
+  </aside>
+
+  <section class="column center-column" aria-label="Javie et planification">
+   <section class="avatar-stage" aria-labelledby="javie-title">
+    <div class="avatar-heading"><span class="eyebrow">VOTRE ASSISTANTE PERSONNELLE</span><h2 id="javie-title">Javie<span> ✧</span></h2></div>
+    <div class="portrait-frame has-portrait" id="portrait-frame">
+      <div class="orbital orbital-one" aria-hidden="true"></div><div class="orbital orbital-two" aria-hidden="true"></div><div class="orbital orbital-three" aria-hidden="true"></div>
+      <div class="portrait-placeholder" id="portrait-placeholder" hidden><svg viewBox="0 0 160 190" fill="none" aria-hidden="true"><defs><linearGradient id="hologram" x1="30" y1="0" x2="130" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#75e9ff"/><stop offset=".5" stop-color="#759aff"/><stop offset="1" stop-color="#5968df" stop-opacity=".1"/></linearGradient></defs><ellipse cx="80" cy="69" rx="34" ry="44" stroke="url(#hologram)" stroke-width="1.5"/><path d="M52 100v23c-30 9-43 31-43 57h142c0-26-13-48-43-57v-23M57 132l23 25 23-25" stroke="url(#hologram)" stroke-width="1.5"/><path d="M48 61h64M50 79h60M60 41h40M80 25v88M23 154h114M15 170h130" stroke="#64cafa" stroke-opacity=".13"/></svg><span>Votre portrait prend place ici</span></div>
+      <img id="portrait-image" class="portrait-image" src="/assets/Portrait%20holographique%20bleu%20%C3%A9lectrique%20futuriste.png" data-default-src="/assets/Portrait%20holographique%20bleu%20%C3%A9lectrique%20futuriste.png" alt="Votre image originale de Jarvie, sans retouche" decoding="async">
+      <svg id="portrait-scan" class="portrait-scan" viewBox="0 0 1000 1256.479" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false" style="--scan-distance:1416.479px">
+       <defs>
+        <mask id="scan-silhouette" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1256.479" mask-type="alpha"><image id="scan-source" href="/assets/Portrait%20holographique%20bleu%20%C3%A9lectrique%20futuriste.png" x="0" y="0" width="1000" height="1256.479" preserveAspectRatio="xMidYMid meet" filter="url(#javie-background-key)"/></mask>
+        <linearGradient id="scan-afterglow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a2afff" stop-opacity="0"/><stop offset=".8" stop-color="#d4e7ff" stop-opacity=".08"/><stop offset="1" stop-color="#edfbff" stop-opacity=".28"/></linearGradient>
+        <linearGradient id="scan-light" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d3e7ff" stop-opacity=".05"/><stop offset=".25" stop-color="#e9f9ff" stop-opacity=".65"/><stop offset=".5" stop-color="#fff"/><stop offset=".75" stop-color="#e9f9ff" stop-opacity=".65"/><stop offset="1" stop-color="#d3e7ff" stop-opacity=".05"/></linearGradient>
+       </defs>
+       <g mask="url(#scan-silhouette)"><g class="scan-pass">
+        <path d="M0 0H1000V120Q500 152 0 120Z" fill="url(#scan-afterglow)" stroke="none"/>
+        <path d="M0 120Q500 152 1000 120" fill="none" stroke="url(#scan-light)" stroke-width="5"/>
+        <path d="M0 108Q500 140 1000 108" fill="none" stroke="#d0e2ff" stroke-opacity=".18" stroke-width="2"/>
+        <path d="M0 87Q500 119 1000 87" fill="none" stroke="#c4cfff" stroke-opacity=".08" stroke-width="2"/>
+       </g></g>
+      </svg>
+      <div class="hologram-base" aria-hidden="true"></div>
+      <button class="portrait-upload" data-action="portrait" aria-label="Choisir le portrait de Javie"><svg><use href="#i-upload"/></svg><span>Changer mon image originale</span></button>
+      <input id="portrait-file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+    </div>
+    <div class="javie-intro"><span class="ai-avatar">J</span><p>Un esprit plus léger.<br><strong>Une journée qui vous ressemble.</strong></p><span class="status-dot"></span></div>
+   </section>
+
+   <section class="panel conversation-panel" id="conversation" aria-labelledby="conversation-title">
+    <div class="panel-heading"><h2 id="conversation-title">MON FIL AVEC JAVIE</h2><span class="subtle-pill">APERÇU</span></div>
+    <div class="messages" id="messages" role="log" aria-live="polite" aria-label="Conversation de démonstration"><div class="message assistant-message"><span class="ai-avatar">J</span><div class="bubble"><p>Bonjour Melissa ✨<br>Tout commence par un peu de clarté. Voici votre programme de démonstration.</p><div class="message-summary"><svg><use href="#i-calendar"/></svg><span><strong id="chat-task-count">3 choses à faire</strong><small>Une étape à la fois.</small></span></div></div></div><div class="message user-message"><div class="bubble">Aide-moi à organiser ma journée.</div></div><div class="message assistant-message"><span class="ai-avatar">J</span><div class="bubble"><p>On peut commencer par vos priorités, puis réserver du temps pour vous.</p><button class="inline-plan" data-action="plan"><svg><use href="#i-spark"/></svg>Voir mon plan du jour<svg><use href="#i-arrow"/></svg></button></div></div></div>
+    <div class="chat-suggestions"><button data-action="plan">Ma journée</button><button data-action="bills">Mes factures</button><button data-action="note">Une idée</button></div>
+    <form id="chat-form" class="chat-composer"><label class="sr-only" for="chat-input">Message à Javie</label><input id="chat-input" placeholder="Écrivez à Javie…" maxlength="600" autocomplete="off"><button type="submit" aria-label="Envoyer le message"><svg><use href="#i-send"/></svg></button></form>
+    <p class="demo-caption">Commandes locales actives · IA non connectée</p>
+   </section>
+
+   <section class="voice-stage" aria-label="Commande vocale à venir"><div class="voice-wave" aria-hidden="true"></div><button class="voice-button" data-action="voice" aria-label="Découvrir la future commande vocale"><span><svg><use href="#i-mic"/></svg></span></button><h2>Votre voix. Votre rythme.</h2><p>Un espace pour parler à Javie</p><span class="voice-badge">BIENTÔT</span></section>
+  </section>
+
+  <aside class="column right-column" aria-label="Suivi et agenda">
+   <section class="panel day-overview-panel" aria-labelledby="overview-title">
+    <div class="panel-heading"><h2 id="overview-title">BRIEFING DU JOUR</h2><svg class="heading-icon"><use href="#i-calendar"/></svg></div>
+    <div class="javie-day-layout">
+     <div class="javie-date-tile"><span id="overview-date-label">Aujourd’hui</span><time id="overview-date"><span id="overview-weekday"></span><strong id="overview-day-number"></strong><span id="overview-month"></span></time></div>
+     <div class="overview-stats"><div><svg><use href="#i-calendar"/></svg><strong id="overview-appointments">0</strong><span>rendez-vous</span></div><div><svg><use href="#i-check"/></svg><strong id="overview-pending">0</strong><span>tâches à faire</span></div><div><svg><use href="#i-clock"/></svg><strong id="overview-duration">0 min</strong><span>à prévoir</span></div></div>
+     <div id="overview-ring" class="javie-progress-ring" role="progressbar" aria-label="Avancement de la journée" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div><strong id="overview-progress">0 %</strong><span>Journée<br>accomplie</span></div></div>
+    </div>
+    <p id="overview-next" class="overview-next"></p>
+    <button class="panel-link" data-action="calendar">Voir mon calendrier<svg><use href="#i-arrow"/></svg></button>
+   </section>
+   <section class="panel home-tasks-panel" aria-labelledby="home-tasks-title">
+    <div class="panel-heading"><h2 id="home-tasks-title">Mes tâches</h2><button class="icon-button" data-action="new-task" aria-label="Ajouter une tâche"><svg><use href="#i-plus"/></svg></button></div>
+    <p class="tasks-subtitle">À ne pas oublier</p><p id="home-tasks-count" class="overview-date"></p><ol id="home-tasks-list" class="agenda-list"></ol>
+    <button class="panel-link" data-action="new-task">+ Ajouter une tâche<svg><use href="#i-arrow"/></svg></button>
+   </section>
+   <section class="panel agenda-panel" id="agenda" aria-labelledby="agenda-title"><div class="panel-heading"><h2 id="agenda-title">MA JOURNÉE</h2><button class="icon-button" data-action="new-task" aria-label="Ajouter une tâche"><svg><use href="#i-plus"/></svg></button></div><div class="agenda-date"><span class="status-dot"></span><time id="today-date">Aujourd’hui</time><span id="agenda-count">3 tâches</span></div><div class="day-controls"><button class="icon-button" id="previous-day" aria-label="Jour précédent">‹</button><label class="day-picker"><span class="sr-only">Jour affiché</span><input id="day-picker" type="date" required></label><button class="icon-button" id="next-day" aria-label="Jour suivant">›</button><button class="today-button" id="back-today">Aujourd’hui</button></div><div class="day-overview"><span id="day-load">1 h 30 prévues</span><span id="day-completed">0 / 3 terminés</span></div><div class="day-progress" id="day-progress" role="progressbar" aria-label="Avancement de la journée" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><div id="day-conflicts" class="day-conflicts" hidden></div><ol class="agenda-list" id="agenda-list"></ol><button class="day-plan-button" data-action="plan"><svg><use href="#i-spark"/></svg>Organiser ma journée<svg><use href="#i-arrow"/></svg></button><button class="panel-link" data-action="calendar"><span><svg><use href="#i-calendar"/></svg>Ouvrir ma planification</span><svg><use href="#i-arrow"/></svg></button></section>
+   <section class="panel reminders-panel" id="reminders" aria-labelledby="reminders-title"><div class="panel-heading"><h2 id="reminders-title">MES PROCHAINES ÉCHÉANCES</h2><span class="subtle-pill">RAPPELS</span></div><p id="bill-reminder-status" class="overview-date"></p><ul id="bill-reminder-list" class="bill-reminder-list"></ul><button class="panel-link" data-action="bills">Voir mes factures<svg><use href="#i-arrow"/></svg></button></section>
+   <section class="panel notes-panel" id="notes" aria-labelledby="notes-title"><div class="panel-heading"><h2 id="notes-title">À GARDER EN TÊTE</h2><button class="icon-button" data-action="note" aria-label="Ajouter une note"><svg><use href="#i-plus"/></svg></button></div><div id="notes-list" class="notes-list"><div class="empty-note"><span class="square-icon violet"><svg><use href="#i-note"/></svg></span><div><strong>Une idée en passant ?</strong><p>Elle sera bien ici.</p></div></div></div><button class="panel-link" data-action="notes">Ouvrir mon bloc-notes<svg><use href="#i-arrow"/></svg></button></section>
+  </aside>
+ </main>
+ <main id="workspace-page" class="workspace-page" tabindex="-1" hidden>
+  <div class="workspace-breadcrumb"><a href="#/accueil">Accueil</a><svg><use href="#i-chevron"/></svg><span>Mon espace</span><svg><use href="#i-chevron"/></svg><span id="workspace-breadcrumb-title">Calendrier</span></div>
+  <header class="workspace-hero"><div><p class="eyebrow" id="workspace-section-label">Calendrier</p><h1 id="workspace-title">Mon espace</h1><p id="workspace-description">Faire de la place à ce qui compte.</p></div><div id="workspace-actions" class="workspace-actions"></div></header>
+  <nav id="workspace-navigation" class="workspace-navigation" aria-label="Sections de mon espace"></nav>
+  <div id="workspace-content"></div>
+ </main>
+ <nav class="bottom-nav" aria-label="Navigation du laboratoire"><button class="nav-item active" data-nav="home" aria-current="page"><svg><use href="#i-home"/></svg><span>Accueil</span></button><button class="nav-item" data-nav="chat"><svg><use href="#i-chat"/></svg><span>Conversation</span></button><button class="nav-javie" data-nav="javie" aria-label="Retrouver Javie"><span>J</span></button><button class="nav-item" data-nav="tools"><svg><use href="#i-grid"/></svg><span>Mes outils</span></button><button class="nav-item" data-nav="profile"><svg><use href="#i-person"/></svg><span>Profil</span></button></nav>
+ <footer class="lab-footer">VARNA LAB <span>·</span> Données de démonstration <span>·</span> Votre application actuelle reste indépendante</footer>
+</div>
+<dialog id="modal" class="modal" aria-labelledby="modal-title"><div class="modal-heading"><div><span class="eyebrow">VARNA · LABORATOIRE</span><h2 id="modal-title">Mon espace</h2></div><button class="icon-button" id="modal-close" aria-label="Fermer la fenêtre"><svg><use href="#i-close"/></svg></button></div><div id="modal-content"></div></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

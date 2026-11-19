@@ -1,0 +1,771 @@
+/* Briefing du jour : les deux niveaux partagent le verre existant. */
+#dashboard .briefing-home{padding:20px 18px 15px;cursor:pointer}
+#dashboard .briefing-home .panel-heading{margin-bottom:12px}
+#dashboard .briefing-home #overview-title{font-size:17px;letter-spacing:.055em}
+.briefing-home-date{display:block;color:#b9d8e4;font-size:11px;text-transform:capitalize}
+.briefing-home-message{font-size:12px;line-height:1.65;color:var(--varna-frost-white);margin:9px 0 16px;min-height:20px;text-shadow:var(--varna-frost-halo);}
+.briefing-home-indicators{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px}
+#dashboard .briefing-home-indicators button{display:grid;grid-template-columns:17px 22px 1fr;align-items:center;gap:6px;min-height:43px;padding:9px 0;text-align:left;border:0;border-top:1px solid #b0e9f124;background:transparent;color:var(--varna-frost-white);font-size:11px;border-radius:0;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-indicators button svg{width:16px;height:16px;color:#a1eaff}
+#dashboard .briefing-home-indicators button strong{color:var(--varna-frost-white);font-size:17px;font-weight:500;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-indicators button:hover{color:var(--varna-frost-white);background:#a9ecff08;text-shadow:var(--varna-frost-halo);}
+.briefing-home-next{display:flex;flex-direction:column;gap:5px;border-top:1px solid #a1dce426;margin-top:8px;padding:13px 0 7px;color:var(--varna-frost-white);font-size:11px;line-height:1.5;text-shadow:var(--varna-frost-halo);}
+.briefing-home-next small{font-size:8px;letter-spacing:.13em;color:#8cb1c4}
+.briefing-home-next strong{font-size:12px;font-weight:500;color:var(--varna-frost-white);overflow-wrap:anywhere;text-shadow:var(--varna-frost-halo);}
+.briefing-home-next>span{color:var(--varna-frost-white);font-size:10px;text-shadow:var(--varna-frost-halo);}
+.briefing-home-priority{color:#efd9ff;border-left:2px solid #bb93ed66;padding:4px 0 4px 9px;font-size:11px;line-height:1.6;margin:6px 0;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .briefing-home-open{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:42px;margin-top:9px;padding:10px 0 0;border:0;border-top:1px solid #a1dce42b;border-radius:0;background:transparent;color:#a5ebf5;font-size:10px;letter-spacing:.045em;text-transform:uppercase;text-align:left}
+.briefing-home-open svg{width:15px;height:15px}
+.briefing-home button:focus-visible{outline:1px solid #b4f5ff;outline-offset:3px}
+.calendar-projecting .hologram-page.briefing-page{inset:5dvh max(18px,calc((100vw - 1080px)/2));height:90dvh;max-height:90dvh;padding:26px 30px;scroll-padding-top:20px}
+.briefing-page .workspace-hero{margin-bottom:20px;align-items:flex-start}
+.hologram-page.briefing-page .workspace-hero h1{font-size:30px;color:#b1f2ff;letter-spacing:.04em}
+.briefing-page #workspace-description{font-size:12px;line-height:1.6;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-javie{display:flex;align-items:center;gap:10px;font-size:10px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-javie .ai-avatar{width:30px;height:30px;display:grid;place-items:center;border:1px solid #a3eaff66;border-radius:50%;color:#bcf5ff;background:linear-gradient(135deg,#78eaff13,#b186ff0c)}
+.briefing-full-date{font-size:14px;text-transform:capitalize;margin:15px 0 8px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-summary{font-size:14px;line-height:1.9;color:var(--varna-frost-white);max-width:790px;margin:0;text-shadow:var(--varna-frost-halo);}
+.briefing-updated{font-size:10px;color:#90aebb;margin:10px 0 16px}
+.briefing-toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin-bottom:22px}
+.briefing-page button.secondary-button,.briefing-page .briefing-item-actions button{min-height:35px;padding:8px 11px;font-size:11px;background:#acdcf007;border:1px solid #a1dce438;border-radius:8px;color:var(--varna-frost-white);box-shadow:inset 0 1px 0 #d9faff10;cursor:pointer;text-shadow:var(--varna-frost-halo);}
+.briefing-page button.secondary-button:hover,.briefing-page .briefing-item-actions button:hover{border-color:#a9eaff80;background:#9eeaff0c;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-page button:disabled{opacity:.45;cursor:default}
+.briefing-date-picker{display:flex;flex-direction:column;gap:6px;font-size:9px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-date-picker input{height:35px;padding:6px 9px;border:1px solid #a1dce438;border-radius:8px;background:#acdcf007;color:var(--varna-frost-white);color-scheme:dark;font:inherit;font-size:11px;text-shadow:var(--varna-frost-halo);}
+.briefing-summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.briefing-page .briefing-stat{display:grid;grid-template-columns:22px 1fr;gap:6px 11px;text-align:left;min-width:0;padding:15px 13px;background:linear-gradient(125deg,#b0e9f009,#abc2ff03);border:1px solid #a2dce536;border-radius:10px;box-shadow:inset 0 1px 0 #d8ffff17;color:var(--varna-frost-white);cursor:pointer;text-shadow:var(--varna-frost-halo);}
+.briefing-stat svg{grid-column:1;grid-row:1/3;width:20px;height:20px;color:#a0eaff;margin-top:3px}
+.hologram-page .briefing-stat strong{font-size:25px;font-weight:400;color:var(--varna-frost-white);line-height:1;text-shadow:var(--varna-frost-halo);}
+.briefing-stat span{font-size:12px}
+.briefing-stat small{grid-column:1/-1;font-size:10px;line-height:1.5;color:#8eafbe;overflow-wrap:anywhere}
+.briefing-page .briefing-stat:hover{border-color:#a4eeff88;background:#9aeaff0b}
+.hologram-page.briefing-page .briefing-section{padding:0 18px;margin:0 0 13px;border-color:#9edce53d;border-radius:12px;scroll-margin-top:20px;overflow:visible}
+.briefing-section>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none;cursor:pointer;padding:17px 0;min-height:52px}
+.briefing-section>summary::-webkit-details-marker{display:none}
+.hologram-page .briefing-section>summary h2{font-size:20px;letter-spacing:.045em;margin:0;color:#b6e7f3}
+.briefing-chevron{color:#a9deed;transition:transform .2s}
+.briefing-section[open] .briefing-chevron{transform:rotate(180deg)}
+.briefing-section-body{padding:0 0 18px}
+.briefing-section-body>.secondary-button{margin:0 6px 10px 0}
+.briefing-page .briefing-item{padding:16px 0;margin:0;border:0;border-top:1px solid #b1dce522;border-radius:0;background:transparent;box-shadow:none}
+.hologram-page .briefing-item h3{font-family:"Segoe UI",Arial,sans-serif;text-transform:none;letter-spacing:0;font-size:14px;font-weight:500;color:var(--varna-frost-white);margin:0 0 7px;overflow-wrap:anywhere;text-shadow:var(--varna-frost-halo);}
+.briefing-item p{font-size:11px;line-height:1.7;color:var(--varna-frost-white);margin:5px 0;overflow-wrap:anywhere;text-shadow:var(--varna-frost-halo);}
+.briefing-item-meta{font-size:10px!important;color:var(--varna-frost-white)!important;text-shadow:var(--varna-frost-halo);}
+.briefing-item-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.briefing-empty,.briefing-status{font-size:12px;color:var(--varna-frost-white);line-height:1.8;margin:10px 0;text-shadow:var(--varna-frost-halo);}
+.briefing-warning,.briefing-error{padding:12px;border:1px solid #dcc49438;border-radius:9px;color:#d9cbae;background:#dac79405;font-size:11px;line-height:1.8;margin:12px 0}
+.briefing-error{color:#efd9ff;border-color:#e9a5be44;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+.briefing-warning p{margin:5px 0}
+.briefing-warning button,.briefing-error button{margin:6px 0 0 8px}
+.briefing-filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.briefing-filters [aria-pressed=true]{border-color:#adebff99!important;color:var(--varna-frost-white)!important;background:#a8eaff0d!important;text-shadow:var(--varna-frost-halo);}
+.briefing-task-group>h3{font-size:12px;font-weight:400;letter-spacing:.04em;margin:20px 0 10px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-section progress{width:100%;height:5px;accent-color:#92d9e9}
+.routine-step{display:flex;align-items:center;gap:10px;margin:10px 0;font-size:12px;line-height:1.6;color:var(--varna-frost-white);cursor:pointer;text-shadow:var(--varna-frost-halo);}
+.routine-step input{width:16px;height:16px;accent-color:#94deec;flex-shrink:0}
+.briefing-preference-list{display:flex;flex-direction:column;gap:5px;margin:18px 0}
+.briefing-preference-row{display:flex;gap:7px;align-items:center;border-bottom:1px solid #b5dce51c;padding:6px 0}
+.briefing-preference-row label{display:flex;gap:9px;align-items:center;flex:1;font-size:12px}
+.briefing-preference-row button{min-height:32px;width:34px;padding:5px}
+.briefing-method{font-size:10px;line-height:1.8;color:#8caebf}
+.routine-days{display:flex;flex-wrap:wrap;gap:12px;border:1px solid #a1dce433;padding:12px;margin:16px 0;color:var(--varna-frost-white);font-size:12px;text-shadow:var(--varna-frost-halo);}
+.routine-days label{display:flex;gap:5px;align-items:center}
+.briefing-page :is(button,summary,input):focus-visible{outline:1px solid #b5f6ff;outline-offset:3px}
+@media(max-width:760px){.calendar-projecting .hologram-page.briefing-page{inset:2dvh 10px;height:96dvh;max-height:96dvh;padding:20px 16px}.briefing-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.briefing-toolbar{gap:7px}.briefing-page .workspace-hero{gap:10px}.hologram-page.briefing-page .workspace-hero h1{font-size:26px}.briefing-page .workspace-hero>.workspace-actions{flex-shrink:0}.briefing-page .workspace-hero .secondary-button{padding:8px;font-size:10px}.briefing-summary{font-size:13px}.briefing-page .briefing-item-actions button{min-height:40px}.briefing-date-picker input{font-size:16px;width:160px}.hologram-page.briefing-page .briefing-section{padding:0 13px}.briefing-stat{padding:12px!important}.briefing-stat small{font-size:9px}.briefing-home-indicators button{min-height:44px!important}}
+@media(prefers-reduced-motion:reduce){.briefing-chevron{transition:none}}
+/* Les commandes du briefing restent libres sur les petits écrans. */
+body:has(.briefing-page:not([hidden])) .bottom-nav{visibility:hidden;pointer-events:none}
+
+/* Disposition en cartes de la référence, matière VARNA Verre conservée. */
+.briefing-page #workspace-actions{display:flex;align-items:center;justify-content:flex-end;gap:15px;flex-wrap:wrap}
+.briefing-page .workspace-hero{padding-bottom:14px;margin-bottom:16px}
+.briefing-page .briefing-full-date{display:flex;align-items:center;gap:8px;margin:0;font-size:11px;color:var(--varna-frost-white);white-space:nowrap;text-shadow:var(--varna-frost-halo);}
+.briefing-full-date svg{width:17px;height:17px;color:#a8eaff}
+.briefing-welcome-row{display:grid;grid-template-columns:1.12fr 1fr;gap:12px}
+.hologram-page .briefing-greeting,.hologram-page .briefing-environment{position:relative;min-width:0;margin:0;padding:15px;border-radius:13px;border:1px solid #95deed4d;background:radial-gradient(ellipse at 0 0,#c1efff0e,transparent 65%),linear-gradient(135deg,#22465738,#102d3e26 50%,#1d405338);backdrop-filter:blur(8px) saturate(.75);-webkit-backdrop-filter:blur(8px) saturate(.75);box-shadow:inset 1px 1px 0 #e6ffff33,inset -1px -1px 0 #bca0e31a,1px 2px 0 #7bbac933,0 8px 20px #01091426}
+.briefing-greeting{display:flex;align-items:center;gap:14px;min-height:112px;overflow:hidden}
+.briefing-portrait{width:66px;height:83px;flex-shrink:0;border-radius:42%;overflow:hidden;filter:drop-shadow(0 0 5px #70eaff33);mask-image:radial-gradient(ellipse 65% 66% at 50% 43%,#000 55%,transparent 86%)}
+.briefing-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.briefing-kicker{font-size:8px;letter-spacing:.15em;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.hologram-page .briefing-greeting h2{font-family:'Segoe UI',Arial,sans-serif;font-size:16px;line-height:1.5;font-weight:500;text-transform:none;letter-spacing:0;color:var(--varna-frost-white);margin:4px 0 5px;text-shadow:var(--varna-frost-halo);}
+.briefing-greeting-copy{min-width:0}
+.briefing-greeting-copy>p{font-size:12px;color:var(--varna-frost-white);line-height:1.6;margin:0;text-shadow:var(--varna-frost-halo);}
+.briefing-summary-detail{margin-top:7px;font-size:10px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-summary-detail summary{cursor:pointer;list-style:none;color:#a7e9f7}
+.briefing-summary-detail summary::after{content:' ↗';font-size:10px}
+.briefing-summary-detail .briefing-summary{font-size:11px;margin-top:8px;line-height:1.7}
+.briefing-environment{display:grid;grid-template-columns:1fr 1fr;align-items:center}
+.briefing-environment-cell{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;gap:5px 10px;min-width:0;padding:7px 8px}
+.briefing-environment-cell+div{border-left:1px solid #b5e6ef26}
+.briefing-environment-cell>svg{width:27px;height:27px;grid-row:1/4;color:#adefff;filter:drop-shadow(0 0 5px #7aeaff33)}
+.hologram-page .briefing-environment-cell strong{font-size:16px;font-weight:400;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-environment-cell span,.briefing-environment-cell small{font-size:9px;line-height:1.5;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-toolbar{margin:11px 0 14px;gap:7px;align-items:center}
+.briefing-toolbar .briefing-updated{margin:0 0 0 auto;font-size:9px}
+.briefing-page .briefing-toolbar button{font-size:10px;min-height:32px;padding:7px 9px}
+.briefing-page .briefing-date-picker input{height:32px;font-size:11px;max-width:145px}
+.briefing-summary-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin-bottom:14px}
+.briefing-page .briefing-stat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:100px;padding:10px 6px!important;text-align:center;position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 25% 0%,#b4efff0a,transparent 65%),linear-gradient(125deg,#16394b2e,#0b23341f 48%,#102d3e2e);border-color:#9cdfee55;border-radius:12px;box-shadow:inset 1px 1px 0 #c5f4ff30,inset -1px -1px 0 #020b1870,1px 2px 0 #81d9ef26,0 5px 15px #01071222}
+.briefing-page .briefing-stat:nth-child(3n){box-shadow:inset 1px 1px 0 #d9c6ff2b,inset -1px -1px 0 #020b1870,1px 2px 0 #a795dc26,0 5px 15px #01071222}
+.briefing-page .briefing-stat svg{width:21px;height:21px;margin:0;color:#a7eeff;filter:drop-shadow(0 0 4px #64eaff26)}
+.briefing-page .briefing-stat:nth-child(3n) svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+.briefing-page .briefing-stat strong{font-size:24px;font-weight:400;line-height:1.1}
+.briefing-page .briefing-stat span{font-size:11px;line-height:1.25}
+.briefing-page .briefing-stat small{font-size:8px;line-height:1.3;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-dashboard{display:grid;grid-template-columns:1.12fr 1fr;gap:12px;align-items:start}
+.briefing-column{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hologram-page.briefing-page .briefing-section{margin:0;padding:0 13px;min-width:0}
+.briefing-section>summary{gap:8px;padding:11px 0;min-height:42px;border-bottom:1px solid transparent}
+.briefing-section[open]>summary{border-bottom-color:#acd9e324}
+.briefing-section>summary>svg{width:18px;height:18px;flex-shrink:0;color:#a5edff;filter:drop-shadow(0 0 4px #65eaff22)}
+#briefing-priorities>summary>svg,#briefing-suggestions>summary>svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+.hologram-page .briefing-section>summary h2{font-size:18px;line-height:1.3;text-transform:none;letter-spacing:.02em;flex:1}
+.briefing-page button.briefing-section-link{font-size:8px;white-space:nowrap;border:0;background:transparent;padding:5px 0;color:var(--varna-frost-white);cursor:pointer;text-shadow:var(--varna-frost-halo);}
+.briefing-page button.briefing-section-link:hover{color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-chevron{font-size:11px}
+.briefing-section-body{padding:7px 0 8px;max-height:330px;overflow:auto;scrollbar-width:thin;scrollbar-color:#8bd9ea44 transparent}
+#briefing-agenda[open] .briefing-section-body{min-height:0;max-height:300px}
+#briefing-tasks[open] .briefing-section-body{min-height:0;max-height:330px}
+#briefing-priorities .briefing-section-body{max-height:220px}
+#briefing-payments .briefing-section-body{max-height:175px}
+#briefing-deadlines .briefing-section-body{max-height:205px}
+.briefing-page .briefing-item{padding:9px 0;border-top-color:#abdce31c}
+.hologram-page .briefing-item h3{font-size:12px;margin:0 0 4px;line-height:1.5;font-weight:500}
+.briefing-item p{font-size:10px;line-height:1.5;margin:4px 0}
+.briefing-item-meta{font-size:9px!important}
+.briefing-page .briefing-section-body>.secondary-button{font-size:9px;min-height:28px;padding:5px 8px;margin-bottom:7px}
+.briefing-page details.briefing-item-actions{display:block;margin-top:6px}
+.briefing-item-actions>summary{display:inline-flex;align-items:center;gap:5px;color:#97d7e6;cursor:pointer;font-size:9px;padding:3px 0;list-style:none}
+.briefing-item-actions>summary::after{content:'⌄';font-size:10px}
+.briefing-item-actions[open]>summary{display:flex;margin-bottom:5px}
+.briefing-page .briefing-item-actions button{font-size:9px;padding:5px 7px;min-height:29px;margin:3px 4px 3px 0}
+.briefing-page .briefing-item-actions:not(details){gap:5px;margin-top:6px}
+.briefing-task-group>h3{font-size:10px;margin:9px 0 5px}
+.briefing-page .routine-step{font-size:11px;margin:6px 0;gap:7px}
+.briefing-page .routine-step input{width:14px;height:14px}
+.briefing-page .briefing-empty{font-size:10px;line-height:1.7;margin:7px 0}
+.briefing-filters{gap:5px;margin-bottom:7px}
+.briefing-page .briefing-filters button{font-size:8px;padding:4px 6px;min-height:26px}
+.briefing-page .briefing-warning{font-size:10px;padding:8px;margin:7px 0}
+.briefing-page .briefing-warning p{font-size:10px}
+.briefing-page .briefing-warning button{font-size:9px;min-height:27px;padding:5px 7px}
+#briefing-suggestions{grid-column:1;align-self:start}
+.hologram-page .briefing-wellbeing{position:relative;grid-column:2;padding:0 13px 13px;border:1px solid #9edce53d;border-radius:12px;min-width:0;align-self:start;background:radial-gradient(ellipse at 0 0,#a9deff08,transparent 70%),linear-gradient(125deg,#16394b2e,#0b23341f 48%,#102d3e2e);box-shadow:inset 1px 1px 0 #c5f4ff30,inset -1px -1px 0 #020b1870,1px 2px 0 #81d9ef26;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.briefing-wellbeing-heading{display:flex;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid #acd9e324}
+.briefing-wellbeing-heading svg{width:18px;height:18px;color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+.hologram-page .briefing-wellbeing-heading h2{font-size:18px;letter-spacing:.02em;text-transform:none;line-height:1.3;margin:0}
+.briefing-wellbeing-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:18px 0 10px;text-align:center}
+.briefing-wellbeing-metrics>div{display:flex;flex-direction:column;align-items:center;gap:7px}
+.briefing-wellbeing-ring{display:grid;place-items:center;width:45px;height:45px;border-radius:50%;border:1px solid #91e6ff66;background:radial-gradient(circle,#89eaff0e,transparent 70%);box-shadow:inset 0 1px 0 #d3ffff30,inset 0 0 13px #79eaff09,0 0 7px #79eaff0f}
+.briefing-wellbeing-ring svg{width:22px;height:22px;color:#a4ecff;filter:drop-shadow(0 0 3px #85edff33)}
+.briefing-wellbeing-metrics>div:nth-child(even) .briefing-wellbeing-ring{border-color:#c49aff66;box-shadow:inset 0 1px 0 #e7d2ff30,inset 0 0 13px #b991ff09,0 0 7px #b991ff0f}
+.briefing-wellbeing-metrics>div:nth-child(even) svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+.briefing-wellbeing-metrics strong{font-size:18px;font-weight:400;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-wellbeing-metrics>div>span:last-child{font-size:10px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-wellbeing>.secondary-button{font-size:9px;min-height:28px;padding:5px 8px}
+.briefing-more-sections{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;align-items:start}
+.briefing-return{margin:16px 0 0}
+@media(max-width:1000px){.briefing-page .briefing-stat span{font-size:10px}.briefing-page .briefing-stat small{font-size:8px}.briefing-welcome-row{grid-template-columns:1fr 1fr}.briefing-environment-cell{grid-template-columns:1fr;text-align:center;justify-items:center}.briefing-environment-cell>svg{grid-row:auto;width:22px;height:22px}.briefing-environment-cell strong{font-size:14px}.briefing-page button.briefing-section-link{display:none}}
+@media(max-width:680px){.briefing-welcome-row{grid-template-columns:1fr}.briefing-greeting{min-height:95px}.briefing-environment{min-height:90px}.briefing-environment-cell{grid-template-columns:27px 1fr;text-align:left;justify-items:start}.briefing-environment-cell>svg{grid-row:1/4}.briefing-summary-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.briefing-page .briefing-stat{min-height:94px}.briefing-dashboard{grid-template-columns:1fr}.briefing-column-left{grid-row:1}.briefing-column-right{grid-row:2}#briefing-suggestions{grid-column:1;grid-row:3}.hologram-page .briefing-wellbeing{grid-column:1;grid-row:4}.briefing-more-sections{grid-template-columns:1fr}.briefing-page #workspace-actions{gap:7px;justify-content:flex-start}.briefing-page .workspace-hero{gap:10px}.briefing-page .briefing-full-date{font-size:10px}.briefing-toolbar .briefing-updated{margin:0;width:100%}.briefing-page .briefing-date-picker input{font-size:16px;max-width:150px}.briefing-section-body{max-height:370px}.briefing-page .briefing-item-actions button{min-height:37px}.briefing-page .briefing-stat strong{font-size:22px}}
+#briefing-agenda .briefing-item{position:relative;padding-left:60px;min-height:65px}
+#briefing-agenda .briefing-item::before{content:'';position:absolute;left:0;top:13px;bottom:13px;width:2px;border-radius:2px;background:linear-gradient(#a1f4ff,#62deff55);box-shadow:0 0 5px #6eeaff22;pointer-events:none}
+#briefing-agenda .briefing-item:nth-of-type(even)::before{background:linear-gradient(#c4a1ff,#b586ff55);box-shadow:0 0 5px #b18aff22}
+.briefing-agenda-time{position:absolute;left:10px;top:12px;font-size:11px;color:var(--varna-frost-white);font-variant-numeric:tabular-nums;text-shadow:var(--varna-frost-halo);}
+.briefing-task-progress{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;margin:6px 0 12px}
+.briefing-task-progress small{font-size:9px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.briefing-task-progress progress{display:block;width:100%;height:5px;margin:0;border:0;border-radius:5px;overflow:hidden;appearance:none;background:#a1cde01c}
+.briefing-task-progress progress::-webkit-progress-bar{background:#a1cde01c;border-radius:5px}
+.briefing-task-progress progress::-webkit-progress-value{background:linear-gradient(90deg,#91e9f3,#bd9deb);border-radius:5px}
+.briefing-task-progress progress::-moz-progress-bar{background:linear-gradient(90deg,#91e9f3,#bd9deb);border-radius:5px}
+.briefing-page .routine-step h3{margin:0;flex:1}
+
+/* Toutes les cartes du briefing suivent la hauteur de leur contenu. */
+.hologram-page.briefing-page .briefing-section,
+.hologram-page.briefing-page .briefing-wellbeing{
+  height:auto;
+  min-height:0;
+  align-self:stretch;
+}
+.briefing-page .briefing-section .briefing-section-body{
+  height:auto;
+  min-height:0;
+}
+.briefing-page .briefing-wellbeing-metrics{margin:11px 0 7px;gap:6px}
+.briefing-page .briefing-wellbeing-metrics>div{gap:4px}
+.briefing-page .briefing-wellbeing-ring{width:38px;height:38px}
+.briefing-page .briefing-wellbeing-ring svg{width:19px;height:19px}
+
+/* Deux piles indépendantes : largeur commune, aucun espace de rangée partagé. */
+.briefing-page .briefing-dashboard{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  align-items:start;
+}
+.briefing-page .briefing-column{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:12px;
+  min-width:0;
+}
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{
+  box-sizing:border-box;
+  width:100%;
+  min-width:0;
+  min-height:0;
+  height:auto;
+  align-self:stretch;
+  margin:0;
+}
+@media(max-width:680px){
+  .briefing-page .briefing-dashboard{grid-template-columns:minmax(0,1fr)}
+}
+.briefing-intro .briefing-welcome-row{margin-bottom:14px}
+
+/* Densité compacte : priorité au contenu, espaces et en-têtes réduits. */
+.calendar-projecting .hologram-page.briefing-page{padding:16px 18px}
+.briefing-page .workspace-hero{padding-bottom:9px;margin-bottom:10px;gap:10px}
+.hologram-page.briefing-page .workspace-hero h1{font-size:24px;line-height:1.1;margin:0 0 4px}
+.briefing-page #workspace-description{font-size:11px;margin:0;line-height:1.4}
+.briefing-page .workspace-hero .secondary-button{min-height:28px;padding:5px 8px}
+.briefing-intro .briefing-welcome-row{gap:8px;margin-bottom:8px}
+.hologram-page.briefing-page .briefing-greeting,
+.hologram-page.briefing-page .briefing-environment{padding:9px 11px;min-height:0}
+.briefing-page .briefing-greeting{gap:10px}
+.briefing-page .briefing-portrait{width:44px;height:58px}
+.hologram-page.briefing-page .briefing-greeting h2{font-size:14px;line-height:1.3;margin:2px 0 3px}
+.briefing-page .briefing-greeting-copy>p{font-size:11px;line-height:1.4}
+.briefing-page .briefing-summary-detail{margin-top:4px;font-size:9px}
+.briefing-page .briefing-environment-cell{padding:3px 7px;gap:3px 8px}
+.briefing-page .briefing-environment-cell>svg{width:21px;height:21px}
+.hologram-page.briefing-page .briefing-environment-cell strong{font-size:13px}
+.briefing-page .briefing-summary-grid{gap:8px;margin-bottom:8px}
+.briefing-page .briefing-stat{display:grid;grid-template-columns:19px auto;justify-content:center;align-content:center;gap:3px 7px;min-height:64px;padding:7px 5px!important;border-radius:10px}
+.briefing-page .briefing-stat svg{grid-column:1;grid-row:1;width:17px;height:17px;align-self:center}
+.briefing-page .briefing-stat strong{grid-column:2;grid-row:1;font-size:20px;text-align:left}
+.briefing-page .briefing-stat span{grid-column:1/-1;font-size:10px;line-height:1.3}
+.briefing-page .briefing-stat small{grid-column:1/-1;line-height:1.2}
+.briefing-page .briefing-dashboard,.briefing-page .briefing-column{gap:8px}
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{padding-left:10px;padding-right:10px;border-radius:10px}
+.briefing-page .briefing-section>summary{padding:6px 0;min-height:31px;gap:7px}
+.hologram-page.briefing-page .briefing-section>summary h2{font-size:16px;line-height:1.2}
+.briefing-page .briefing-section>summary>svg{width:15px;height:15px}
+.briefing-page .briefing-section .briefing-section-body{padding:5px 0 6px}
+.briefing-page .briefing-empty{margin:4px 0;line-height:1.5}
+.briefing-page .briefing-item{padding-top:6px;padding-bottom:6px}
+.briefing-page .briefing-item p{margin:3px 0;line-height:1.4}
+.briefing-page .briefing-task-group>h3{margin:5px 0;font-size:11px}
+.briefing-page .briefing-warning{padding:6px 8px;margin:4px 0;line-height:1.5}
+.briefing-page .briefing-warning p{margin:3px 0}
+.briefing-page .briefing-section-body>.secondary-button{min-height:25px;padding:4px 7px;margin-bottom:4px}
+.briefing-page .briefing-item-actions{margin-top:3px}
+.briefing-page .briefing-item-actions>summary{padding:2px 0}
+.briefing-page .briefing-item-actions button{min-height:26px;padding:4px 6px;margin:2px 3px 2px 0}
+.briefing-page .briefing-wellbeing{padding-bottom:9px}
+.briefing-page .briefing-wellbeing-heading{padding:7px 0;gap:7px}
+.hologram-page.briefing-page .briefing-wellbeing-heading h2{font-size:16px}
+.briefing-page .briefing-wellbeing-heading svg{width:15px;height:15px}
+.briefing-page .briefing-wellbeing-metrics{margin:8px 0 3px}
+.briefing-page .briefing-wellbeing-ring{width:30px;height:30px}
+.briefing-page .briefing-wellbeing-ring svg{width:16px;height:16px}
+.briefing-page .briefing-wellbeing-metrics>div{gap:3px}
+.briefing-page .briefing-wellbeing-metrics strong{font-size:15px}
+.briefing-page #briefing-agenda .briefing-item{min-height:0;padding-left:53px}
+.briefing-page .briefing-agenda-time{left:8px;top:9px}
+.briefing-page .briefing-return{margin-top:10px;min-height:28px;padding:5px 8px}
+@media(max-width:680px){
+  .calendar-projecting .hologram-page.briefing-page{padding:13px 12px}
+  .briefing-page .briefing-environment-cell{grid-template-columns:22px 1fr}
+  .briefing-page .briefing-stat{min-height:64px}
+  .briefing-page .briefing-item-actions button{min-height:34px}
+  .briefing-page .briefing-section>summary{min-height:35px}
+}
+
+/* Une seule ligne de lumière à la place des six indicateurs. */
+.briefing-page .briefing-neon-divider{
+  display:block;
+  width:100%;
+  height:1px;
+  padding:0;
+  margin:13px 0 15px;
+  border:0;
+  background:linear-gradient(90deg,#71efff00,#71efff99 8%,#b6fcff 25%,#75eaff 43%,#b58aff 66%,#dbc0ff 81%,#b58aff88 94%,#b58aff00);
+  box-shadow:0 0 4px #76ebff66,0 0 9px #ae80ff33;
+  opacity:.95;
+}
+.briefing-intro .briefing-welcome-row{margin-bottom:0}
+
+/* Salutation personnalisée, gravée en lumière dans le verre. */
+.hologram-page.briefing-page .briefing-greeting h2{
+  font-size:clamp(23px,2.2vw,29px);
+  font-weight:500;
+  line-height:1.25;
+  margin:3px 0 6px;
+  letter-spacing:.015em;
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+
+/* Même lumière pour les titres, polices et dimensions conservées. */
+.hologram-page.briefing-page .workspace-hero h1,
+.hologram-page.briefing-page .briefing-greeting h2,
+.hologram-page.briefing-page .briefing-section>summary h2,
+.hologram-page.briefing-page .briefing-wellbeing-heading h2,
+.hologram-page.briefing-page .briefing-environment-cell strong,
+.hologram-page.briefing-page .briefing-task-group>h3,
+.hologram-page.briefing-page .briefing-item h3{
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+
+/* Une seule surface de verre, défilement sans barre visible. */
+.hologram-page.briefing-page,
+.hologram-page.briefing-page *{
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.hologram-page.briefing-page::-webkit-scrollbar,
+.hologram-page.briefing-page *::-webkit-scrollbar{
+  display:none;
+  width:0;
+  height:0;
+}
+.hologram-page.briefing-page .briefing-greeting,
+.hologram-page.briefing-page .briefing-environment,
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{
+  background:transparent;
+  border-color:#b4e9f018;
+  box-shadow:inset 0 1px 0 #d4faff0a;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.hologram-page.briefing-page .briefing-greeting::before,
+.hologram-page.briefing-page .briefing-greeting::after,
+.hologram-page.briefing-page .briefing-environment::before,
+.hologram-page.briefing-page .briefing-environment::after,
+.hologram-page.briefing-page .briefing-column>.briefing-section::before,
+.hologram-page.briefing-page .briefing-column>.briefing-section::after,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing::before,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing::after{
+  content:none;
+}
+.briefing-page .briefing-section[open]>summary,
+.briefing-page .briefing-wellbeing-heading{
+  border-bottom-color:#b5e8f019;
+}
+
+/* Finesse homogène des titres de cartes, comme Tâches du jour. */
+.hologram-page.briefing-page .briefing-section>summary h2,
+.hologram-page.briefing-page .briefing-wellbeing-heading h2{
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-weight:300;
+}
+
+/* Netteté de la page Tâches : texte lisible, lumière réservée aux titres. */
+.hologram-page.briefing-page .briefing-section>summary h2,
+.hologram-page.briefing-page .briefing-wellbeing-heading h2,
+.hologram-page.briefing-page .workspace-hero h1{
+  color:#a2f6ff;
+  text-shadow:0 0 4px #28dfff40,0 0 10px #21dfff20;
+}
+.hologram-page.briefing-page .briefing-item h3{
+  font-family:"Segoe UI",Arial,sans-serif;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.4;
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-item p,
+.hologram-page.briefing-page .briefing-empty,
+.hologram-page.briefing-page .briefing-warning,
+.hologram-page.briefing-page .briefing-warning p,
+.hologram-page.briefing-page .routine-step{
+  font-size:12px;
+  line-height:1.5;
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-item .briefing-item-meta{
+  font-size:11px!important;
+  color:var(--varna-frost-white)!important;
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-item-actions>summary,
+.hologram-page.briefing-page .briefing-item-actions button,
+.hologram-page.briefing-page button.briefing-section-link{
+  font-size:11px;
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-task-group>h3{
+  color:var(--varna-frost-white);
+  font-size:12px;
+  
+;text-shadow:var(--varna-frost-halo);}
+
+/* Sections gravées dans une plaque unique, sans cadres superposés. */
+.hologram-page.briefing-page .briefing-greeting,
+.hologram-page.briefing-page .briefing-environment,
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{
+  border:1px solid transparent;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.hologram-page.briefing-page .briefing-section>summary,
+.hologram-page.briefing-page .briefing-wellbeing-heading{
+  border-bottom:1px solid #c8f5ff24;
+  box-shadow:0 1px 0 #020c1738;
+  background:linear-gradient(90deg,#b9eeff05,transparent 75%);
+}
+.hologram-page.briefing-page .briefing-section>summary h2,
+.hologram-page.briefing-page .briefing-wellbeing-heading h2,
+.hologram-page.briefing-page .briefing-environment-cell strong{
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-item h3{
+  color:var(--varna-frost-white);
+  
+;text-shadow:var(--varna-frost-halo);}
+.hologram-page.briefing-page .briefing-warning{
+  background:none;
+  border:0;
+  border-left:1px solid #c7e6ef33;
+  border-radius:0;
+  box-shadow:inset 1px 0 0 #05152544;
+}
+
+/* Délimitation des catégories par un seul trait de lumière dans le verre. */
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{
+  position:relative;
+  padding-bottom:10px;
+}
+.hologram-page.briefing-page .briefing-column>.briefing-section::after,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing::after{
+  content:"";
+  display:block;
+  position:absolute;
+  inset:auto 10px 0;
+  width:auto;
+  height:1px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:linear-gradient(90deg,#71efff00,#71efff99 8%,#b6fcff 25%,#75eaff 43%,#b58aff 66%,#dbc0ff 81%,#b58aff88 94%,#b58aff00);
+  box-shadow:0 0 4px #76ebff66,0 0 8px #ae80ff2b;
+  filter:none;
+  mask:none;
+  -webkit-mask:none;
+  opacity:.85;
+  pointer-events:none;
+}
+
+/* Contours fermés, gravés dans le verre commun du panneau. */
+.hologram-page.briefing-page .briefing-greeting,
+.hologram-page.briefing-page .briefing-environment,
+.hologram-page.briefing-page .briefing-column>.briefing-section,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing{
+  position:relative;
+  border:1px solid #a5e6f13b;
+  border-radius:10px;
+  background:transparent;
+  box-shadow:inset 1px 1px 0 #d9fbff16,inset -1px -1px 0 #c2a0f313;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+.hologram-page.briefing-page .briefing-greeting::after,
+.hologram-page.briefing-page .briefing-environment::after,
+.hologram-page.briefing-page .briefing-column>.briefing-section::after,
+.hologram-page.briefing-page .briefing-column>.briefing-wellbeing::after{
+  content:"";
+  display:block;
+  position:absolute;
+  inset:-1px;
+  width:auto;
+  height:auto;
+  padding:1px;
+  border:0;
+  border-radius:inherit;
+  background:radial-gradient(ellipse 90px 2px at 20% 0%,#baffffb3,transparent 85%),radial-gradient(ellipse 2px 42px at 0% 24%,#7aefff80,transparent 85%),radial-gradient(ellipse 90px 2px at 78% 100%,#d9b5ffb3,transparent 85%),radial-gradient(ellipse 2px 40px at 100% 76%,#c192ff80,transparent 85%),linear-gradient(125deg,#83edff44,transparent 40%,#b993ff33);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+  box-shadow:none;
+  filter:drop-shadow(0 0 2px #84ecff33);
+  opacity:.85;
+  pointer-events:none;
+}
+
+/* Lecture du résumé sur le verre : contraste et taille renforcés. */
+#dashboard .briefing-home :is(.briefing-home-date,.briefing-home-message,.briefing-home-next,.briefing-home-priority){color:var(--varna-frost-white);font-size:13px;line-height:1.6;font-weight:500;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-indicators button{color:var(--varna-frost-white);font-size:13px;font-weight:500;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-indicators button strong{color:var(--varna-frost-white);font-size:19px;font-weight:600;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home .briefing-home-next>span{color:var(--varna-frost-white);font-size:12px;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home .briefing-home-next small{color:var(--varna-frost-white);font-size:10px;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home .briefing-home-next strong{color:var(--varna-frost-white);font-size:14px;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-open{color:var(--varna-frost-white);font-size:12px;font-weight:600;text-shadow:var(--varna-frost-halo);}
+
+/* Même typographie de lecture pour les deux cartes d’accueil. */
+#dashboard :is(.briefing-home .briefing-home-date,.briefing-home .briefing-home-message,.briefing-home .briefing-home-next,.briefing-home .briefing-home-priority,.briefing-home-indicators button,.deadlines-panel .deadlines-copy,.deadlines-panel .renewal-list li){font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:13px;font-weight:500;line-height:1.6;color:var(--varna-frost-white);letter-spacing:normal;text-shadow:var(--varna-frost-halo);}
+#dashboard :is(.briefing-home-open,.deadlines-panel .panel-link){font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:12px;font-weight:600;color:var(--varna-frost-white);letter-spacing:.045em;text-transform:uppercase;text-shadow:var(--varna-frost-halo);}
+#dashboard .deadlines-panel .deadline-badge{font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:11px;font-weight:500;line-height:1.6;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+#dashboard .deadlines-panel .deadline-badge.deadline-soon{color:#fff3c4}
+
+/* Halo assorti aux icônes des échéances. */
+#dashboard .briefing-home-indicators button svg{color:#a1eaff;filter:drop-shadow(0 0 2px #a1eaffb3) drop-shadow(0 0 5px #57cfff80)}
+
+/* Lettrage intégré au verre, sans blanc dur ni ombre opaque. */
+#dashboard .briefing-home :is(.briefing-home-date,.briefing-home-message,.briefing-home-next,.briefing-home-priority){color:#b9d8e4;font-weight:400;text-shadow:none}
+#dashboard .briefing-home-indicators button{color:#b9d8e4;font-weight:400;text-shadow:none}
+#dashboard .briefing-home .briefing-home-next>span{color:#b9d8e4;font-weight:400;text-shadow:none}
+#dashboard .briefing-home .briefing-home-next strong{color:var(--varna-frost-white);font-weight:400;text-shadow:var(--varna-frost-halo);}
+#dashboard .briefing-home-open{color:#b9d8e4;font-weight:400;text-shadow:none}
+
+/* Appliquer le même ton doux aux textes, y compris leurs enfants. */
+#dashboard #briefing-home-date,
+#dashboard #briefing-home-message,
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *,
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *{color:var(--varna-frost-white);font-weight:400;-webkit-text-stroke:0;filter:none;text-shadow:var(--varna-frost-halo);}
+
+/* Essai du lettrage néon sur les lignes du résumé uniquement. */
+#dashboard #briefing-home-date,
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *{color:#b6f8ff;font-weight:400;text-shadow:0 0 2px #a4f5ff99,0 0 6px #21dfff99,0 0 11px #00c9ff55}
+#dashboard #briefing-home-message,
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *{color:#efd9ff;font-weight:400;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .briefing-home-indicators button span{color:#b6f8ff;text-shadow:0 0 2px #a4f5ff99,0 0 6px #21dfff80}
+#dashboard .briefing-home-indicators button:nth-child(even) span{color:#efd9ff;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+
+/* Traits plus fins pour le lettrage néon. */
+#dashboard #briefing-home-date,
+#dashboard #briefing-home-message,
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *,
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *,
+#dashboard .briefing-home-indicators button span{font-weight:300}
+
+/* Halo néon renforcé, sans épaissir les lettres. */
+#dashboard #briefing-home-date,
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *,
+#dashboard .briefing-home-indicators button span{color:#c4fcff;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80}
+#dashboard #briefing-home-message,
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *,
+#dashboard .briefing-home-indicators button:nth-child(even) span{color:#efd9ff;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+
+/* Résumé en blanc néon givré. */
+#dashboard #briefing-home-message{color:var(--varna-frost-white);font-weight:300;text-shadow:var(--varna-frost-halo);}
+
+/* Même blanc néon givré pour la ligne de rendez-vous. */
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *{color:var(--varna-frost-white);font-weight:300;text-shadow:var(--varna-frost-halo);}
+
+/* Priorité assortie aux autres lignes en blanc néon givré. */
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *{color:var(--varna-frost-white);font-weight:300;text-shadow:var(--varna-frost-halo);}
+
+/* Libellés des indicateurs en blanc néon givré. */
+#dashboard .briefing-home-indicators button span,
+#dashboard .briefing-home-indicators button:nth-child(even) span{color:var(--varna-frost-white);font-weight:300;text-shadow:var(--varna-frost-halo);}
+
+/* Carte Briefing : majuscules et lettrage fin. */
+#dashboard .briefing-home,
+#dashboard .briefing-home :is(h2,time,p,span,strong,small,button),
+#dashboard .briefing-home #overview-title,
+#dashboard #briefing-home-date,
+#dashboard #briefing-home-message,
+#dashboard #briefing-home-next,
+#dashboard #briefing-home-next *,
+#dashboard #briefing-home-priority,
+#dashboard #briefing-home-priority *,
+#dashboard .briefing-home-indicators button strong,
+#dashboard .briefing-home-indicators button span,
+#dashboard .briefing-home-indicators button:nth-child(even) span,
+#dashboard .briefing-home-open{font-weight:300;text-transform:uppercase}
+
+/* Lien du Briefing en mauve néon avec halo. */
+#dashboard .briefing-home-open{color:#efd9ff;font-weight:300;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .briefing-home-open svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+
+/* Priorité sur les styles communs des liens de cartes. */
+#dashboard .briefing-home button.briefing-home-open{color:#efd9ff;font-weight:300;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .briefing-home button.briefing-home-open svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+
+/* Échéances : mêmes majuscules fines et blanc givré que le Briefing. */
+#dashboard .deadlines-panel,
+#dashboard .deadlines-panel :is(h2,p,span,li,button){text-transform:uppercase;font-weight:300}
+#dashboard .deadlines-panel .deadlines-copy,
+#dashboard .deadlines-panel .renewal-list li,
+#dashboard .deadlines-panel .renewal-list li>span:first-of-type,
+#dashboard .deadlines-panel .deadline-badge,
+#dashboard .deadlines-panel .deadline-badge.deadline-soon{color:#f3f8fc;font-weight:300;text-transform:uppercase;text-shadow:0 0 2px #ffffffcc,0 0 5px #e5f2ffb3,0 0 10px #d4e8ff80,0 0 16px #c7dfff40}
+#dashboard .deadlines-panel h2,
+#dashboard .deadlines-panel button.panel-link{font-weight:300;text-transform:uppercase}
+
+/* Sous-titre des échéances : halo identique à la date du Briefing. */
+#dashboard .deadlines-panel p.deadlines-copy{color:#c4fcff;font-weight:300;text-transform:uppercase;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80}
+
+/* Titre des échéances : même halo que la date du Briefing. */
+#dashboard .deadlines-panel h2#deadlines-title{color:var(--varna-frost-white);font-weight:300;filter:none;text-shadow:var(--varna-frost-halo);}
+
+/* Lien des échéances assorti au lien du Briefing. */
+#dashboard .deadlines-panel button.panel-link{color:#efd9ff;font-weight:300;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .deadlines-panel button.panel-link svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+
+/* Soleil cyan et titre blanc givré. */
+#dashboard .briefing-home .panel-heading{gap:9px}
+#dashboard .briefing-home .briefing-title-sun{width:26px;height:26px;color:#63f5ff;stroke-width:1.6;filter:drop-shadow(0 0 2px #50efffcc) drop-shadow(0 0 6px #00dfff99)}
+#dashboard .briefing-home h2#overview-title{flex:1;min-width:0;color:var(--varna-frost-white);font-weight:300;text-shadow:var(--varna-frost-halo);}
+
+/* Suggestions de Javie : contenu dans la carte de verre existante. */
+#dashboard .suggestions-panel{padding:15px 13px 11px}
+#dashboard .suggestions-panel .panel-heading{gap:8px;margin-bottom:4px}
+#dashboard .suggestions-panel h2{flex:1;font-size:17px;font-weight:300;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.suggestions-heading-icon{width:28px;height:28px;color:#63f5ff;filter:drop-shadow(0 0 4px #00dfff99)}
+.suggestions-copy{font-size:10px;color:var(--varna-frost-white);margin:3px 0 12px 36px;line-height:1.5;text-shadow:var(--varna-frost-halo);}
+.suggestion-list{display:grid;gap:7px}
+.suggestion-row{display:flex;align-items:center;gap:11px;width:100%;padding:9px 10px;text-align:left;border:1px solid #8cd9e535;border-radius:9px;background:linear-gradient(115deg,#8feaff08,transparent)}
+.suggestion-row:hover{background:#83e9ed0c;border-color:#8cd9e570}
+.suggestion-icon{width:25px;height:25px;color:#a1eaff;filter:drop-shadow(0 0 2px #a1eaffb3) drop-shadow(0 0 5px #57cfff80)}
+.suggestion-row:nth-child(2) .suggestion-icon{color:#63f5ff}
+.suggestion-row>span{flex:1;min-width:0}
+.suggestion-row strong{display:block;font-size:12px;font-weight:400;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.suggestion-row small{display:block;font-size:10px;line-height:1.4;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+.suggestion-chevron{width:13px;height:13px;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+#dashboard .suggestions-panel .panel-link{margin-top:12px;padding:10px 0 0;border:0;border-top:1px solid #a1dce42b;border-radius:0;min-height:38px;font-size:12px;font-weight:300;text-transform:uppercase;color:#efd9ff;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+
+/* Suggestions assorties au lettrage blanc givré des autres cartes. */
+#dashboard .suggestions-panel .suggestion-row :is(strong,small){font-weight:300;text-transform:uppercase;color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+
+/* Lien des suggestions : même néon mauve que les autres liens. */
+#dashboard .suggestions-panel button.panel-link{color:#efd9ff;font-weight:300;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .suggestions-panel button.panel-link svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+
+/* Sous-titre des suggestions en cyan néon. */
+#dashboard .suggestions-panel .suggestions-copy{text-transform:uppercase;font-weight:300;color:#c4fcff;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80}
+
+/* Sous-titre à la même taille que ceux des autres cartes. */
+#dashboard .suggestions-panel .suggestions-copy{font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:11px;line-height:1.6}
+
+/* Sous-titre des suggestions en blanc néon givré. */
+#dashboard .suggestions-panel .suggestions-copy{color:var(--varna-frost-white);text-shadow:var(--varna-frost-halo);}
+
+/* Titre blanc givré et sous-titre mauve néon. */
+#dashboard .suggestions-panel .suggestions-copy{color:#efd9ff;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .suggestions-panel h2#suggestions-title{color:var(--varna-frost-white);font-weight:300;text-transform:uppercase;text-shadow:var(--varna-frost-halo);}
+
+#dashboard .suggestions-panel .suggestions-copy{color:#c4fcff;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80}
+
+/* Halo mauve renforcé du lien Briefing. */
+#dashboard .briefing-home button.briefing-home-open{color:#efd9ff;text-shadow:0 0 2px #f4ddff,0 0 5px #dcacff,0 0 10px #c475ff,0 0 18px #ac4fffc9,0 0 25px #9639ff80;}
+#dashboard .briefing-home button.briefing-home-open svg{color:#efd9ff;filter:drop-shadow(0 0 3px #d194ff) drop-shadow(0 0 7px #b45affb3);}
+
+/* Suggestions sans encadrement, séparées par un filet fin. */
+#dashboard .suggestions-panel .suggestion-list{gap:0}
+#dashboard .suggestions-panel .suggestion-row{border:0;border-radius:0;background:transparent;box-shadow:none;padding:12px 0}
+#dashboard .suggestions-panel .suggestion-row+.suggestion-row{border-top:1px solid #a1dce42b}
+#dashboard .suggestions-panel .suggestion-row:hover{background:#83e9ed08}
+
+/* Page Briefing : langage visuel de l’accueil. */
+body.varna-fine-lettering .hologram-page.briefing-page,
+body.varna-fine-lettering .hologram-page.briefing-page *{text-transform:uppercase}
+body.varna-fine-lettering .hologram-page.briefing-page :is(h1,h2,h3,h4,h5,h6){font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:300;letter-spacing:.045em;color:#f3f8fc;text-shadow:0 0 2px #ffffffcc,0 0 5px #e5f2ffb3,0 0 10px #d4e8ff80,0 0 16px #c7dfff40}
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-section>summary>svg,
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-wellbeing-heading>svg,
+body.varna-fine-lettering .hologram-page.briefing-page .workspace-hero svg,
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-stat>svg{color:#63f5ff;stroke:currentColor;filter:drop-shadow(0 0 2px #50efffcc) drop-shadow(0 0 6px #00dfff99)}
+
+/* Les cinq cartes demandées dans le verre existant. */
+.hologram-page.briefing-page .briefing-five-cards{display:block;max-width:850px;margin-inline:auto}
+.hologram-page.briefing-page .briefing-five-cards .briefing-column{display:grid;gap:12px}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section{margin:0}
+.hologram-page.briefing-page .briefing-five-cards .briefing-item{padding:10px 0}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section>summary{padding:12px 0}
+.hologram-page.briefing-page .briefing-environment{display:none}
+.hologram-page.briefing-page .briefing-welcome-row{grid-template-columns:1fr}
+
+/* Briefing compact : contenu dense et largeur disponible utilisée. */
+.hologram-page.briefing-page .briefing-five-cards{max-width:none;width:100%}
+.hologram-page.briefing-page .briefing-five-cards .briefing-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-items:start}
+.hologram-page.briefing-page .briefing-five-cards #briefing-suggestions{grid-column:1/-1}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section{padding:0 10px;min-height:0}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section>summary{padding:8px 0;min-height:34px;gap:7px}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section>summary h2{font-size:16px;line-height:1.15}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section-body{padding:4px 0 7px;min-height:0;max-height:none;overflow:visible}
+.hologram-page.briefing-page .briefing-five-cards .briefing-item{padding:6px 0}
+.hologram-page.briefing-page .briefing-five-cards .briefing-item :is(h3,p){margin:3px 0;line-height:1.35}
+.hologram-page.briefing-page .briefing-five-cards .briefing-task-group>h3{margin:5px 0;font-size:11px}
+.hologram-page.briefing-page .briefing-five-cards .briefing-item-actions{margin-top:3px}
+.hologram-page.briefing-page .briefing-five-cards :is(.briefing-empty,.briefing-warning){margin:5px 0;padding:0;font-size:11px;line-height:1.4}
+.hologram-page.briefing-page .briefing-five-cards .routine-step{gap:7px;padding:2px 0;min-height:24px}
+.hologram-page.briefing-page .briefing-five-cards .briefing-section-body>.secondary-button{min-height:25px;padding:4px 7px;margin:0 0 4px}
+@media(max-width:700px){.hologram-page.briefing-page .briefing-five-cards .briefing-column{grid-template-columns:minmax(0,1fr)}}
+
+/* Cases des tâches : mauve néon, état coché bien distinct. */
+.hologram-page.briefing-page #briefing-tasks input[type="checkbox"]{appearance:none;-webkit-appearance:none;flex-shrink:0;width:15px;height:15px;margin:0;border:1px solid #dcacff;border-radius:3px;background:transparent;box-shadow:0 0 2px #f4ddff,0 0 5px #c475ff,0 0 10px #ac4fff99;cursor:pointer;display:inline-grid;place-content:center;vertical-align:middle}
+.hologram-page.briefing-page #briefing-tasks input[type="checkbox"]:checked{background:#9860ff44;box-shadow:0 0 2px #f4ddff,0 0 6px #c475ff,0 0 12px #ac4fffc9,inset 0 0 5px #dcacff55}
+.hologram-page.briefing-page #briefing-tasks input[type="checkbox"]:checked::before{content:"";width:7px;height:4px;border-left:2px solid #f4ddff;border-bottom:2px solid #f4ddff;transform:translateY(-1px) rotate(-45deg);filter:drop-shadow(0 0 2px #c475ff)}
+.hologram-page.briefing-page #briefing-tasks input[type="checkbox"]:focus-visible{outline:2px solid #efd9ff;outline-offset:4px}
+
+/* Action d’ajout assortie au néon mauve. */
+.hologram-page.briefing-page .briefing-section > summary > .briefing-add-button {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 14px;
+  height: 14px;
+  padding: 0;
+  border: 1px solid #dcacff99;
+  border-radius: 4px;
+  background: #ac4fff14;
+  color: #efd9ff;
+  font: 500 9px/1 system-ui, sans-serif;
+  text-shadow: 0 0 5px #dcacff, 0 0 10px #c475ff;
+  box-shadow: 0 0 5px #c475ff66;
+  cursor: pointer;
+}
+.hologram-page.briefing-page .briefing-add-button:hover {
+  background: #ac4fff38;
+}
+.hologram-page.briefing-page .briefing-add-button:focus-visible {
+  outline: 2px solid #efd9ff;
+  outline-offset: 2px;
+}
+
+/* Prénom assorti à la salutation de l’accueil. */
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-greeting h2 .briefing-greeting-name{color:#c4fcff;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80}
+
+#briefing-name-neon{color:#c4fcff !important;text-shadow:0 0 2px #b9ffff,0 0 5px #42edff,0 0 10px #00dfffcc,0 0 17px #00c8ff80 !important}
+
+/* Briefing : sections sans cadre, séparées par de fins filets. */
+body.varna-fine-lettering .hologram-page.briefing-page .panel.workspace-panel{border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.varna-fine-lettering .hologram-page.briefing-page .panel.workspace-panel::before,
+body.varna-fine-lettering .hologram-page.briefing-page .panel.workspace-panel::after{display:none}
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-five-cards .briefing-section{border-top:1px solid #a1dce42b}
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-five-cards .briefing-item{border:0;border-top:1px solid #a1dce42b;border-radius:0;background:transparent;box-shadow:none}
+
+/* Encadrement délicat des cartes du Briefing. */
+body.varna-fine-lettering .hologram-page.briefing-page .panel.workspace-panel{border:1px solid #a1dce41f;border-radius:9px;box-shadow:none}
+body.varna-fine-lettering .hologram-page.briefing-page .briefing-five-cards .briefing-section{border:1px solid #a1dce41f}
+body.varna-fine-lettering .briefing-page .briefing-five-cards :is(.briefing-item p,.briefing-task-group h3){
+  font-family:"Barlow Condensed","Arial Narrow",sans-serif;
+  font-weight:300;
+  letter-spacing:.045em;
+  color:var(--varna-frost-white);
+  text-shadow:var(--varna-frost-halo);
+}
